@@ -1,0 +1,32 @@
+<%- include("../partials/header"); %>
+
+    <form id="new-form-platform" action="/" method="GET">
+        <label>Name:
+            <input type="text" name="name">
+        </label><br>
+        <label>Description:
+            <input type="text" name="description">
+        </label><br>
+        <label>Industry:
+            <input type="text" name="industry">
+        </label><br>
+        <input type="submit" value="Add AI Platform">
+    </form>
+    <hr>
+    <form action="/" method="GET">
+        <label>Company Name:
+            <input type="text" name="company-name">
+        </label><br>
+        <label>Year Created:
+            <input type="number" name="year-created">
+        </label><br>
+        <label>Website:
+            <input type="text" name="website">
+        </label><br>
+        <label>Versions:
+            <input type="text" name="versions">
+        </label><br>
+        <input type="submit" value="Add More Info to AI Platform">
+    </form>
+
+<%- include("../partials/footer"); %>
