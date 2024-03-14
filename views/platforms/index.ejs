@@ -3,17 +3,18 @@
 <table id="list">
     <thead>
       <tr>
+        <th>Logo</th>
         <th>Name</th>
         <th>Description</th>
         <th>Industry</th>
         <th>More Info</th>
-        <th>Edit</th>
-        <th>Delete</th>
+        <th>Favorite</th>
       </tr>
     </thead>
     <tbody>
        <% platforms.forEach(p => { %>
         <tr>
+            <td></td>
             <td><%= p.name %></td>
             <td><%= p.description %></td>
             <td><%= p.industry %></td>
@@ -23,14 +24,7 @@
                 </form>
             </td>
             <td>
-                <form action="/platforms/<%= p._id %>" method="GET">
-                    <input type="submit" value="Edit">
-                </form>
-            </td>
-            <td>
-                <form action="/platforms/<%= p._id %>?_method=DELETE" method="POST">
-                    <input type="submit" value="Delete">
-                </form>
+                <input type="submit" value="Favorite">
             </td>
         </tr>
        <% }); %>

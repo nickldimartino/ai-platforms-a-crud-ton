@@ -4,7 +4,8 @@ const Platform = require("../models/platform");
 module.exports = {
     index,
     create,
-    new: newCompany
+    new: newCompany,
+    edit
 }
 
 async function index(req, res) {
@@ -31,4 +32,17 @@ function newCompany(req, res) {
         platformId: req.params.id,
         errorMsg: ""
     });
+}
+
+async function edit(req, res) {
+    const platform = await Platform.findById(req.params.id);
+    const company = await Company.findById(platform.company[0]);
+
+    company.name = req.body["company-name"];
+    company.yearCreated = req.body["year-created"];
+    company.website = req.body.website;
+    
+    await company.save();
+    
+    res.redirect(`/companies/${req.params.id}`);
 }

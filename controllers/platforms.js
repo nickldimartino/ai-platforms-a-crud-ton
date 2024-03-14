@@ -63,6 +63,8 @@ async function edit(req, res) {
     platform.name = req.body.name;
     platform.description = req.body.description;
     platform.industry = req.body.industry;
-
+    
+    await platform.save();
+    
     res.redirect("/platforms");
 }
