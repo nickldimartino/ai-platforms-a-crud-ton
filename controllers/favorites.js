@@ -6,6 +6,7 @@ module.exports = {
 
 function index(req, res) {
     res.render("favorites/index", {
-        title: "Your Favorites List"
+        title: "Your Favorites List",
+        errorMsg: ""
     });
 }

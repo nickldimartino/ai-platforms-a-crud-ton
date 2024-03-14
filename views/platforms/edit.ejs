@@ -1,4 +1,35 @@
 <%- include("../partials/header"); %>
 
+<section>
+    <div><strong>Name: </strong><%= platform.name %></div>
+    <div><strong>Description: </strong> <%= platform.description %></div>
+    <div><strong>Industry: </strong> <%= platform.industry %></div>
+</section>
+
+<form id="new-form-platform" action="/platforms/<%= platform.id %>" method="POST">
+    <label>Name:
+        <input type="text" name="name" >
+    </label><br>
+    <label>Description:
+        <input type="text" name="description">
+    </label><br>
+    <label>Industry:
+        <input type="text" name="industry">
+    </label><br>
+    <input type="submit" value="Edit the AI Platform">
+</form>
+<hr>
+<form id="new-form-platform" action="/company/<%= platform.id %>" method="POST">
+    <label>Name:
+        <input type="text" name="company-name" >
+    </label><br>
+    <label>Year Created:
+        <input type="text" name="year-created">
+    </label><br>
+    <label>Website:
+        <input type="text" name="website">
+    </label><br>
+    <input type="submit" value="Edit the AI Platform Company Info">
+</form>
 
 <%- include("../partials/footer"); %>

@@ -1,0 +1,31 @@
+<%- include("../partials/header"); %>
+
+<section>
+    <div><strong>Name: </strong><%= platform.name %></div>
+    <div><strong>Description: </strong><%= platform.description %></div>
+    <div><strong>Industry: </strong><%= platform.industry %></div>
+    <div><strong>Company Name: </strong>
+        <% if (platform.company.length === 1) { %>
+            <%= platform.company[0].name %>
+        <% } %>
+    </div>
+    <div><strong>Year Created: </strong>
+        <% if (platform.company.length === 1) { %>
+            <%= platform.company[0].yearCreated %>
+        <% } %>
+    </div>
+    <div><strong>Website: </strong>
+        <% if (platform.company.length === 1) { %>
+            <%= platform.company[0].website %>
+        <% } %>
+    </div>
+</section>
+
+<% if (!platform.company.length) { %>
+    <form action="/companies/new/<%= platform._id %>" method="GET">
+        <input type="submit" value="Add Company Info">
+    </form>
+<% } %>
+
+
+<%- include("../partials/footer"); %>

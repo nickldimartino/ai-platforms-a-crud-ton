@@ -1,0 +1,16 @@
+<%- include("../partials/header"); %>
+
+<form id="new-form-platform" action="/companies/<%= platformId %>" method="POST">
+    <label>Company Name:
+        <input type="text" name="name" >
+    </label><br>
+    <label>Year Created:
+        <input type="text" name="yearCreated">
+    </label><br>
+    <label>Website:
+        <input type="text" name="website">
+    </label><br>
+    <input type="submit" value="Confirm Edit">
+</form>
+
+<%- include("../partials/footer"); %>
