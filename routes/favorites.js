@@ -4,7 +4,7 @@ var favoritesCtrl = require("../controllers/favorites");
 var ensureLoggedIn = require('../config/ensureLoggedIn');
 
 /* GET users listing. */
-router.get('/index', favoritesCtrl.index);
+router.get('/index', ensureLoggedIn, favoritesCtrl.index);
 
 // POST route to add an AI Platform to a Users favorites list
 router.post("/:id", ensureLoggedIn, favoritesCtrl.create);

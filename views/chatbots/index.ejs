@@ -1,0 +1,10 @@
+<%- include("../partials/header"); %>
+
+<p><%= response %></p>
+
+<form action="/chatbots/new" method="POST">
+    <input type="text" name="inputText">
+    <input type="submit" value="Enter">
+</form>
+
+<%- include("../partials/footer"); %>
