@@ -6,22 +6,22 @@
     <div><strong>Industry: </strong><%= platform.industry %></div>
     <div><strong>Company Name: </strong>
         <% if (platform.company.length === 1) { %>
-            <%= platform.company[0].name %>
+            <%= platform.company.name %>
         <% } %>
     </div>
     <div><strong>Year Created: </strong>
         <% if (platform.company.length === 1) { %>
-            <%= platform.company[0].yearCreated %>
+            <%= platform.company.yearCreated %>
         <% } %>
     </div>
     <div><strong>Website: </strong>
         <% if (platform.company.length === 1) { %>
-            <%= platform.company[0].website %>
+            <%= platform.company.website %>
         <% } %>
     </div>
 </section>
 
-<% if (!platform.company.length) { %>
+<% if (!Array.isArray(platform.company) || !platform.company.length) { %>
     <form action="/companies/new/<%= platform._id %>" method="GET">
         <input type="submit" value="Add Company Info">
     </form>

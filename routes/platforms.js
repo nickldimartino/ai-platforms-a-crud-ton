@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var platformsCtrl = require("../controllers/platforms");
-const ensureLoggedIn = require('../config/ensureLoggedIn');
+var ensureLoggedIn = require('../config/ensureLoggedIn');
 
 // GET route for AI Platform page
 router.get('/', platformsCtrl.index);

@@ -27,7 +27,7 @@ async function index(req, res) {
 }
 
 async function show(req, res) {
-    const platform = await Platform.findById(req.params.id);
+    const platform = await Platform.findById(req.params.id).populate("company");
     res.render("platforms/edit", {
         title: "Edit the AI Platform Info",
         platform,
@@ -59,7 +59,7 @@ async function deletePlatform(req, res) {
 
 async function edit(req, res) {
     const platform = await Platform.findById(req.params.id);
-
+    
     platform.name = req.body.name;
     platform.description = req.body.description;
     platform.industry = req.body.industry;

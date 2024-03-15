@@ -22,7 +22,9 @@
                 </form>
             </td>
             <td>
-                <input type="submit" value="Favorite">
+                <form action="/favorites/<%= p.id %>" method="POST">
+                    <input type="submit" value="Favorite">
+                </form>
             </td>
         </tr>
        <% }); %>

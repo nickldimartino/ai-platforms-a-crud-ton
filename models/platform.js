@@ -11,7 +11,7 @@ const platformSchema = new Schema({
     industry: String,
     company: [{
         type: Schema.Types.ObjectId,
-        ref: "Company"
+        ref: "Platform"
     }]
 });
 

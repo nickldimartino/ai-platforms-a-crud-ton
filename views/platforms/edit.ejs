@@ -4,8 +4,23 @@
     <div><strong>Name: </strong><%= platform.name %></div>
     <div><strong>Description: </strong> <%= platform.description %></div>
     <div><strong>Industry: </strong> <%= platform.industry %></div>
+    <div><strong>Company Name: </strong>
+        <% if (platform.company.length === 1) { %>
+            <%= platform.company[0].name %>
+        <% } %>
+    </div>
+    <div><strong>Year Created: </strong>
+        <% if (platform.company.length === 1) { %>
+            <%= platform.company[0].yearCreated %>
+        <% } %>
+    </div>
+    <div><strong>Website: </strong>
+        <% if (platform.company.length === 1) { %>
+            <%= platform.company[0].website %>
+        <% } %>
+    </div>
 </section>
-
+<hr>
 <form id="new-form-platform" action="/platforms/<%= platform.id %>" method="POST">
     <label>Name:
         <input type="text" name="name" >

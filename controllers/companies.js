@@ -10,7 +10,7 @@ module.exports = {
 
 async function index(req, res) {
     const platform = await Platform.findById(req.params.id).populate("company");
-    
+    console.log(platform)
     res.render("companies/index", {
         title: "Company's Info Page",
         platform,
