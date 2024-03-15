@@ -1,16 +1,17 @@
 <%- include("../partials/header"); %>
 
-    <form id="new-form-platform" action="/platforms" method="POST">
-        <label>Name:
-            <input type="text" name="name">
-        </label><br>
-        <label>Description:
-            <input type="text" name="description">
-        </label><br>
-        <label>Industry:
-            <input type="text" name="industry">
-        </label><br>
-        <input type="submit" value="Add AI Platform">
-    </form>
+<!-- POST request to add a new AI Platform to the AI Platform's page -->
+<form id="new-form-platform" action="/platforms" method="POST">
+    <label>Name:
+        <input type="text" name="name">
+    </label><br>
+    <label>Description:
+        <input type="text" name="description">
+    </label><br>
+    <label>Industry:
+        <input type="text" name="industry">
+    </label><br>
+    <input type="submit" value="Add AI Platform">
+</form>
 
 <%- include("../partials/footer"); %>

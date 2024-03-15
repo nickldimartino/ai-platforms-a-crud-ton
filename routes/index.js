@@ -1,15 +1,21 @@
+// -------------------- Packages --------------------
 var express = require('express');
-var router = express.Router();
-const passport = require('passport');
+var passport = require('passport');
 
-/* GET home page. */
+
+// --------------------- Router ---------------------
+var router = express.Router();
+
+
+// --------------------- Routes ---------------------
+// GET route to the Home Page
 router.get('/', function(req, res, next) {
   res.render('index', { 
     title: 'AI Platforms Home Page'
   });
 });
 
-// Google OAuth login route
+// GET route to the Google OAuth login
 router.get('/auth/google', passport.authenticate(
   // Which passport strategy is being used?
   'google',
@@ -21,7 +27,7 @@ router.get('/auth/google', passport.authenticate(
   }
 ));
 
-// Google OAuth callback route
+// GET rpite to the Google OAuth callback
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
@@ -30,11 +36,13 @@ router.get('/oauth2callback', passport.authenticate(
   }
 ));
 
-// OAuth logout route
+// GET route to the OAuth logout
 router.get('/logout', function(req, res){
   req.logout(function() {
     res.redirect('/');
   });
 });
 
+
+// ---------------- Export the router ---------------
 module.exports = router;

@@ -1,7 +1,12 @@
+// -------------------- Packages --------------------
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
-// const Platform = require("../models/platform");
 
+
+// ------------- Mongoose Schema Creation -----------
+const Schema = mongoose.Schema;
+
+
+// -------------------- User Schema ------------------
 const userSchema = new Schema({
     name: String,
     googleId: {
@@ -16,6 +21,8 @@ const userSchema = new Schema({
     }]
   }, {
     timestamps: true
-  });
+});
 
+
+// ------------ Export the Company Schema -----------
 module.exports = mongoose.model('User', userSchema);

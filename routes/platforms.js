@@ -1,12 +1,21 @@
+// -------------------- Packages --------------------
 var express = require('express');
+
+
+// --------------------- Router ---------------------
 var router = express.Router();
+
+
+// ----------------- Required Files -----------------
 var platformsCtrl = require("../controllers/platforms");
 var ensureLoggedIn = require('../config/ensureLoggedIn');
 
-// GET route for AI Platform page
+
+// --------------------- Routes ---------------------
+// GET route for the main AI Platform page
 router.get('/', platformsCtrl.index);
 
-// GET route for new AI Platform page
+// GET route to add a new AI Platform
 router.get('/new', ensureLoggedIn, platformsCtrl.new);
 
 // GET route to show the AI Platform to edit
@@ -21,4 +30,6 @@ router.post('/:id', ensureLoggedIn, platformsCtrl.edit);
 // DELETE route to delete an AI Platform from the AI Platforms page
 router.delete('/:id', ensureLoggedIn, platformsCtrl.delete);
 
+
+// ---------------- Export the router ---------------
 module.exports = router;

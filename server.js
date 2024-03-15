@@ -38,7 +38,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride("_method"));
 
-
 // Mount Session Middleware for OAuth
 app.use(session({
   secret: process.env.SECRET,
@@ -54,6 +53,7 @@ app.use(function (req, res, next) {
   res.locals.user = req.user;
   next();
 });
+
 
 // --------------------- Routes ---------------------
 app.use('/', indexRouter);
@@ -80,4 +80,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+
+// ------------- Export the Express app -------------
 module.exports = app;

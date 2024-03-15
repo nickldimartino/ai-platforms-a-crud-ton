@@ -1,5 +1,6 @@
 <%- include("../partials/header"); %>
 
+<!-- POST request to add new company info to the associated AI Platform -->
 <form id="new-form-platform" action="/companies/<%= platformId %>" method="POST">
     <label>Company Name:
         <input type="text" name="name" >

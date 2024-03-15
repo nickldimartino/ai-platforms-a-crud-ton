@@ -1,5 +1,6 @@
 <%- include("../partials/header"); %>
 
+<!-- display the AI Platform's information with it's Company information -->
 <section>
     <div><strong>Name: </strong><%= platform.name %></div>
     <div><strong>Description: </strong><%= platform.description %></div>
@@ -21,16 +22,19 @@
     </div>
 </section>
 
+<!-- only display the "add company info" button if there is no company info -->
 <% if (!platform.company) { %>
     <form action="/companies/new/<%= platform._id %>" method="GET">
         <input type="submit" value="Add Company Info">
     </form>
 <% } %>
 
+<!-- GET request the edit the AI Platform's information -->
 <form action="/platforms/<%= platform._id %>" method="GET">
     <input type="submit" value="Edit">
 </form>
 
+<!-- GET request the delete the AI Platform and it's associated information -->
 <form action="/platforms/<%= platform._id %>?_method=DELETE" method="POST">
     <input type="submit" value="Delete">
 </form>

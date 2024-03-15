@@ -1,5 +1,6 @@
 <%- include("../partials/header"); %>
 
+<!-- display the AI Platform's information -->
 <section>
     <div><strong>Name: </strong><%= platform.name %></div>
     <div><strong>Description: </strong> <%= platform.description %></div>
@@ -21,6 +22,8 @@
     </div>
 </section>
 <hr>
+
+<!-- POST request to edit the chosen AI Platform's information -->
 <form id="new-form-platform" action="/platforms/<%= platform.id %>" method="POST">
     <label>Name:
         <input type="text" name="name" >
@@ -34,6 +37,8 @@
     <input type="submit" value="Edit the AI Platform">
 </form>
 <hr>
+
+<!-- POST request to edit the chosen AI Platform's company information -->
 <form id="new-form-platform" action="/companies/<%= platform.id %>/edit" method="POST">
     <label>Name:
         <input type="text" name="company-name" >

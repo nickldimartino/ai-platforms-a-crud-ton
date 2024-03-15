@@ -1,7 +1,12 @@
+// -------------------- Packages --------------------
 const mongoose = require("mongoose");
 
+
+// ------------- Mongoose Schema Creation -----------
 const Schema = mongoose.Schema;
 
+
+// ------------------ Platform Schema ---------------
 const platformSchema = new Schema({
     name: String,
     description: {
@@ -15,4 +20,5 @@ const platformSchema = new Schema({
     }
 });
 
+// ------------ Export the Platform Schema ----------
 module.exports = mongoose.model("Platform", platformSchema);

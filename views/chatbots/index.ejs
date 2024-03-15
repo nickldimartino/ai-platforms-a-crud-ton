@@ -1,7 +1,9 @@
 <%- include("../partials/header"); %>
 
+<!-- display the OpenAI generated response -->
 <p><%= response %></p>
 
+<!-- POST request with the user inputted data -->
 <form action="/chatbots/new" method="POST">
     <input type="text" name="inputText">
     <input type="submit" value="Enter">

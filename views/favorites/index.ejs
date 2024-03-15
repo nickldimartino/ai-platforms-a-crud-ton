@@ -1,5 +1,6 @@
 <%- include("../partials/header"); %>
 
+<!-- display the signed-in users favorited AI Platforms -->
 <table id="list">
     <thead>
       <tr>
@@ -17,11 +18,13 @@
             <td><%= p.description %></td>
             <td><%= p.industry %></td>
             <td>
+                <!-- GET request to view more information about the chosen AI Platform -->
                 <form action="/companies/<%= p._id %>" method="GET">
                     <input type="submit" value="More Info">
                 </form>
             </td>
             <td>
+                <!-- POST request to delete the current AI Platform from the user's favorited list -->
                 <form action="/favorites/<%= user._id %>/<%= p._id %>?_method=DELETE" method="POST">
                     <input type="submit" value="Remove">
                 </form>
