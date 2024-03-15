@@ -9,10 +9,10 @@ const platformSchema = new Schema({
         default: "No description"
     },
     industry: String,
-    company: [{
+    company: {
         type: Schema.Types.ObjectId,
-        ref: "Platform"
-    }]
+        ref: "Company"
+    }
 });
 
 module.exports = mongoose.model("Platform", platformSchema);

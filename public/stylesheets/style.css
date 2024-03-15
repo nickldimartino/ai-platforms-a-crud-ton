@@ -15,11 +15,22 @@ a {
   height: 30px;
 }
 
-/* #nav {
-  position: absolute;
-  top: 0;
+/* body {
+  background: lightblue;
+  padding: 0;
+}
+
+a {
+  color: black;
+  margin-left: 10vmin;
+  min-height: 6vmin;
+  max-height: 6vmin;
+}
+
+nav {
+  background-color: lightcoral;
   width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: space-around;
+  font-size: 4vmin;
+  min-height: 6vmin;
+  max-height: 6vmin;
 } */

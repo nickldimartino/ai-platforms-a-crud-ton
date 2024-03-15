@@ -1,34 +1,34 @@
 <%- include("../partials/header"); %>
 
-<table id="list">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Industry</th>
-        <th>More Info</th>
-        <th>Favorite</th>
-      </tr>
-    </thead>
-    <tbody>
-       <% platforms.forEach(p => { %>
+    <table id="list">
+        <thead>
         <tr>
-            <td><%= p.name %></td>
-            <td><%= p.description %></td>
-            <td><%= p.industry %></td>
-            <td>
-                <form action="/companies/<%= p._id %>" method="GET">
-                    <input type="submit" value="More Info">
-                </form>
-            </td>
-            <td>
-                <form action="/favorites/<%= p.id %>" method="POST">
-                    <input type="submit" value="Favorite">
-                </form>
-            </td>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Industry</th>
+            <th>More Info</th>
+            <th>Favorite</th>
         </tr>
-       <% }); %>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+        <% platforms.forEach(p => { %>
+            <tr>
+                <td><%= p.name %></td>
+                <td><%= p.description %></td>
+                <td><%= p.industry %></td>
+                <td>
+                    <form action="/companies/<%= p._id %>" method="GET">
+                        <input type="submit" value="More Info">
+                    </form>
+                </td>
+                <td>
+                    <form action="/favorites/<%= p.id %>" method="POST">
+                        <input type="submit" value="Favorite">
+                    </form>
+                </td>
+            </tr>
+        <% }); %>
+        </tbody>
+    </table>
 
 <%- include("../partials/footer"); %>

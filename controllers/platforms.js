@@ -1,5 +1,6 @@
 const Platform = require("../models/platform");
 const Company = require("../models/company");
+const User = require("../models/user");
 
 module.exports = {
     new: newPlatform,
@@ -50,10 +51,13 @@ async function create(req, res) {
 
 async function deletePlatform(req, res) {
     const platform = await Platform.findById(req.params.id);
+    const user = await User.findById(req.user);
 
-    await Company.findOneAndDelete({ _id: platform.company[0] });
+    await Company.findOneAndDelete({ _id: platform.company });
     await Platform.findOneAndDelete({ _id: platform });
-
+    user.favorites.remove(platform._id);
+    await user.save()
+    
     res.redirect("/platforms");
 }
 
