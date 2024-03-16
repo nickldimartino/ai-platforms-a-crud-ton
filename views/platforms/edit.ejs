@@ -1,55 +1,66 @@
 <%- include("../partials/header"); %>
 
 <!-- display the AI Platform's information -->
-<section>
-    <div><strong>Name: </strong><%= platform.name %></div>
-    <div><strong>Description: </strong> <%= platform.description %></div>
-    <div><strong>Industry: </strong> <%= platform.industry %></div>
-    <div><strong>Company Name: </strong>
-        <% if (platform.company.length === 1) { %>
-            <%= platform.company[0].name %>
-        <% } %>
-    </div>
-    <div><strong>Year Created: </strong>
-        <% if (platform.company.length === 1) { %>
-            <%= platform.company[0].yearCreated %>
-        <% } %>
-    </div>
-    <div><strong>Website: </strong>
-        <% if (platform.company.length === 1) { %>
-            <%= platform.company[0].website %>
-        <% } %>
-    </div>
+<section id="platform-edit-page">
+    <h1 id="platform-edit-title"><%= title %></h1>
+        <section id="platform-edit-form">
+            <section>
+                <div>
+                    <strong>Name: </strong>
+                    <span id="edit-platform-name"><%= platform.name %></span>
+                </div>
+                <div><strong>Description: </strong>
+                    <span id="edit-platform-description"><%= platform.description %></span>
+                </div>
+                <div><strong>Industry: </strong>
+                    <span id="edit-platform-industry"><%= platform.industry %></span>
+                </div>
+                <div><strong>Company Name: </strong>
+                    <% if (platform.company) { %>
+                        <span id="edit-platform-company-name"><%= platform.company.name %></span>
+                    <% } %>
+                </div>
+                <div><strong>Year Created: </strong>
+                    <% if (platform.company) { %>
+                        <span id="edit-platform-year"><%= platform.company.yearCreated %></span>
+                    <% } %>
+                </div>
+                <div><strong>Website: </strong>
+                    <% if (platform.company) { %>
+                        <span id="edit-platform-website"><%= platform.company.website %></span>
+                    <% } %>
+                </div>
+            </section>
+
+            <!-- POST request to edit the chosen AI Platform's information -->
+            <form id="new-form-platform" action="/platforms/<%= platform.id %>" method="POST">
+                <label>Name:
+                    <input type="text" name="name" id="edit-platform-name-input">
+                </label><br>
+                <label>Description:
+                    <input type="text" name="description" id="edit-platform-description-input">
+                </label><br>
+                <label>Industry:
+                    <input type="text" name="industry" id="edit-platform-industry-input">
+                </label><br>
+                <input type="submit" value="Edit the AI Platform" id="edit-platform-confirm-button">
+            </form>
+            
+            <!-- POST request to edit the chosen AI Platform's company information -->
+            <form id="new-form-platform" action="/companies/<%= platform.id %>/edit" method="POST">
+                <label>Name:
+                    <input type="text" name="company-name" id="edit-platform-company-name-input">
+                </label><br>
+                <label>Year Created:
+                    <input type="text" name="year-created" id="edit-platform-year-input">
+                </label><br>
+                <label>Website:
+                    <input type="text" name="website" id="edit-platform-website-input">
+                </label><br>
+                <input type="submit" value="Edit the AI Platform Company Info"id="edit-company-confirm-button">
+            </form>
+        </section>
 </section>
-<hr>
 
-<!-- POST request to edit the chosen AI Platform's information -->
-<form id="new-form-platform" action="/platforms/<%= platform.id %>" method="POST">
-    <label>Name:
-        <input type="text" name="name" >
-    </label><br>
-    <label>Description:
-        <input type="text" name="description">
-    </label><br>
-    <label>Industry:
-        <input type="text" name="industry">
-    </label><br>
-    <input type="submit" value="Edit the AI Platform">
-</form>
-<hr>
-
-<!-- POST request to edit the chosen AI Platform's company information -->
-<form id="new-form-platform" action="/companies/<%= platform.id %>/edit" method="POST">
-    <label>Name:
-        <input type="text" name="company-name" >
-    </label><br>
-    <label>Year Created:
-        <input type="text" name="year-created">
-    </label><br>
-    <label>Website:
-        <input type="text" name="website">
-    </label><br>
-    <input type="submit" value="Edit the AI Platform Company Info">
-</form>
 
 <%- include("../partials/footer"); %>

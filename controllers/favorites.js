@@ -45,7 +45,7 @@ async function create(req, res) {
     
     // render the AI Platform's Index page with all the AI platforms
     res.render("platforms/index", {
-        title: "AI Platforms",
+        title: "AI Platforms: A CRUD-ton!",
         platforms,
         errorMsg: ""
     });

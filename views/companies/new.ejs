@@ -1,17 +1,22 @@
 <%- include("../partials/header"); %>
 
 <!-- POST request to add new company info to the associated AI Platform -->
-<form id="new-form-platform" action="/companies/<%= platformId %>" method="POST">
-    <label>Company Name:
-        <input type="text" name="name" >
-    </label><br>
-    <label>Year Created:
-        <input type="text" name="yearCreated">
-    </label><br>
-    <label>Website:
-        <input type="text" name="website">
-    </label><br>
-    <input type="submit" value="Confirm Edit">
-</form>
+<section id="new-company-page">
+    <h1 id="new-company-title"><%= title %></h1>
+    <div id="new-company-form">
+        <form id="new-form-platform" action="/companies/<%= platformId %>" method="POST">
+            <label>Company Name:
+                <input type="text" name="name" id="new-company-name-input">
+            </label><br>
+            <label>Year Created:
+                <input type="text" name="yearCreated" id="new-company-year-input">
+            </label><br>
+            <label>Website:
+                <input type="text" name="website" id="new-company-website-input">
+            </label><br>
+            <input type="submit" value="Confirm Edit" id="company-confirm-button">
+        </form>
+    </div>
+</section>
 
 <%- include("../partials/footer"); %>

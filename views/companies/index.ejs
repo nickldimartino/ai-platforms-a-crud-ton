@@ -1,43 +1,57 @@
 <%- include("../partials/header"); %>
 
 <!-- display the AI Platform's information with it's Company information -->
-<section>
-    <div><strong>Name: </strong><%= platform.name %></div>
-    <div><strong>Description: </strong><%= platform.description %></div>
-    <div><strong>Industry: </strong><%= platform.industry %></div>
-    <div><strong>Company Name: </strong>
-        <% if (platform.company) { %>
-            <%= platform.company.name %>
-        <% } %>
-    </div>
-    <div><strong>Year Created: </strong>
-        <% if (platform.company) { %>
-            <%= platform.company.yearCreated %>
-        <% } %>
-    </div>
-    <div><strong>Website: </strong>
-        <% if (platform.company) { %>
-            <%= platform.company.website %>
-        <% } %>
+<section id="companies-index-page">
+    <h1 id="companies-index-title"><%= title %></h1>
+    <div id="companies-index-form">
+        <div class="companies-index-row">
+            <strong>Name: </strong>
+            <span id="companies-index-name"><%= platform.name %></span>
+        </div>
+        <div class="companies-index-row">
+            <strong>Description: </strong>
+            <span id="companies-index-description"><%= platform.description %></span>
+        </div>
+        <div class="companies-index-row">
+            <strong>Industry: </strong>
+            <span id="companies-index-industry"><%= platform.industry %></span>
+        </div>
+        <div class="companies-index-row">
+            <strong>Company Name: </strong>
+            <% if (platform.company) { %>
+                <span id="companies-index-company"><%= platform.company.name %></span>
+            <% } %>
+        </div>
+        <div class="companies-index-row">
+            <strong>Year Created: </strong>
+            <% if (platform.company) { %>
+                <span id="companies-index-year-created"><%= platform.company.yearCreated %></span>
+            <% } %>
+        </div>
+        <div class="companies-index-row">
+            <strong>Website: </strong>
+            <% if (platform.company) { %>
+                <span id="companies-index-website"><%= platform.company.website %></span>
+            <% } %>
+        </div>
+            <div id="companies-index-buttons">
+            <!-- only display the "add company info" button if there is no company info -->
+              <% if (!platform.company) { %>
+                <form action="/companies/new/<%= platform._id %>" method="GET">
+                    <input type="submit" value="Add Company Info" class="companies-index-button">
+                </form>
+              <% } %>
+                <!-- GET request the edit the AI Platform's information -->
+                <form action="/platforms/<%= platform._id %>" method="GET">
+                    <input type="submit" value="Edit" class="companies-index-button">
+                </form>
+
+                <!-- GET request the delete the AI Platform and it's associated information -->
+                <form action="/platforms/<%= platform._id %>?_method=DELETE" method="POST">
+                    <input type="submit" value="Delete" class="companies-index-button">
+                </form>
+            </div>
     </div>
 </section>
-
-<!-- only display the "add company info" button if there is no company info -->
-<% if (!platform.company) { %>
-    <form action="/companies/new/<%= platform._id %>" method="GET">
-        <input type="submit" value="Add Company Info">
-    </form>
-<% } %>
-
-<!-- GET request the edit the AI Platform's information -->
-<form action="/platforms/<%= platform._id %>" method="GET">
-    <input type="submit" value="Edit">
-</form>
-
-<!-- GET request the delete the AI Platform and it's associated information -->
-<form action="/platforms/<%= platform._id %>?_method=DELETE" method="POST">
-    <input type="submit" value="Delete">
-</form>
-
 
 <%- include("../partials/footer"); %>

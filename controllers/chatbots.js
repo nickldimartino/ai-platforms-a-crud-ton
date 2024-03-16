@@ -19,7 +19,7 @@ module.exports = {
 // Render the Chatbots index page
 function index(req, res) {
     res.render("chatbots/index", {
-        title: "Try the Chatbot AI",
+        title: "Chatbot AI",
         response: "",                                  // initialize the user response to an empty string
         errorMsg: ""
     });
@@ -42,7 +42,7 @@ async function newText(req, res) {
 
     // render the response on the Chatbots Index page
     res.render("chatbots/index", {
-        title: "Try the Chatbot AI",
+        title: "Chatbot AI",
         response,
         errorMsg: ""
     });

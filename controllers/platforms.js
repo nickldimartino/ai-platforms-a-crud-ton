@@ -20,7 +20,7 @@ module.exports = {
 async function index(req, res) {
     const platforms = await Platform.find({});
     res.render("platforms/index", {
-        title: "AI Platforms",
+        title: "AI Platforms: A CRUD-ton!",
         platforms,
         errorMsg: ""
     });

@@ -1,37 +1,35 @@
 <%- include("../partials/header"); %>
 
 <!-- display the AI Platform's -->
-<table id="list">
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Industry</th>
-        <th>More Info</th>
-        <th>Favorite</th>
-    </tr>
-    </thead>
-    <tbody>
+<section id="platforms-index-table">
+    <h1 id="platforms-index-title"><%= title %></h1>
+    <div id="platforms-index-thead">
+        <div id="platforms-index-thead-row">
+            <div><strong>Name</strong></div>
+            <div><strong>Description</strong></div>
+            <div><strong>Industry</strong></div>
+            <div><strong>More Info</strong></div>
+            <div><strong>Favorite</strong></div>
+        </div>
+    </div>
     <% platforms.forEach(p => { %>
-        <tr>
-            <td><%= p.name %></td>
-            <td><%= p.description %></td>
-            <td><%= p.industry %></td>
-            <td>
+        <div id="platforms-index-each-platform">
+            <div><%= p.name %></div>
+            <div><%= p.description %></div>
+            <div><%= p.industry %></div>
+            <div>
                 <!-- GET request to view more info about the chosen AI Platform -->
                 <form action="/companies/<%= p._id %>" method="GET">
-                    <input type="submit" value="More Info">
+                    <input type="submit" value="More Info" class="platforms-index-buttons">
                 </form>
-            </td>
-            <td>
+            </div>
+            <div>
                 <!-- POST request to favorite the chosen AI Platform -->
                 <form action="/favorites/<%= p.id %>" method="POST">
-                    <input type="submit" value="Favorite">
-                </form>
-            </td>
-        </tr>
+                    <input type="submit" value="Favorite" class="platforms-index-buttons">
+            </div>
+        </div>
     <% }); %>
-    </tbody>
-</table>
+</section>
 
 <%- include("../partials/footer"); %>

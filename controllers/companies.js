@@ -60,8 +60,7 @@ async function edit(req, res) {
     const platform = await Platform.findById(req.params.id);
 
     // get the chosen company from MongoDB
-    const company = await Company.findById(platform.company[0]);
-
+    const company = await Company.findById(platform.company);
     // change the newly entered info to replace to old info
     company.name = req.body["company-name"];
     company.yearCreated = req.body["year-created"];

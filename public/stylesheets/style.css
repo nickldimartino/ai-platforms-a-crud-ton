@@ -1,36 +1,336 @@
+/* --------------------- CONSTANTS --------------------- */
+* {
+  --body-background: url("https://images.template.net/115858/free-sky-blue-abstract-background-lsaav.jpeg"); 
+  --title-color: black;
+  --nav-color: brown;
+  --nav-font-color: ivory;
+  --button-color: brown;
+  --button-font-color: white;
+  --background-color: white;
+  --platform-color: white;
+}
+
+
+/* --------------------- All Pages --------------------- */
+/* Web Page Body */
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: var(--body-background);
+  background-size: cover;
+  padding: 0;
+  background-attachment: fixed;
 }
 
+/* Nav Bar */
+nav {
+  background-color: var(--nav-color);
+  width: 100vw;
+  font-size: 3vmin;
+  min-height: 8vmin;
+  max-height: 8vmin;
+  position: fixed;
+  margin-top: 0;
+  padding-top: 1vmin;
+}
+
+/* Nav Bar Links */
 a {
-  color: #00B7FF;
+  color: var(--nav-font-color);
+  margin-left: 16vmin;
+  min-height: 6vmin;
+  max-height: 6vmin;
 }
 
+/* Nav Bar Links on Hover */
+a:hover {
+  color: var(--nav-font-color);
+}
+
+/* Login Link Height */
 .login {
   height: 34px;
 }
 
+/* Login Link Image Height */
 .login img {
   height: 30px;
 }
 
-/* body {
-  background: lightblue;
-  padding: 0;
+#header-thead { height: 30px }
+
+
+/* --------------------- Front Pages --------------------- */
+#add-platform-index-page,
+#companies-index-page,
+#new-company-page,
+#platform-edit-page,
+#chatbot-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 12vmin;
 }
 
-a {
-  color: black;
-  margin-left: 10vmin;
-  min-height: 6vmin;
-  max-height: 6vmin;
+
+/* ------------------------ Forms ------------------------ */
+#add-platform-form,
+#companies-index-form,
+#new-company-form,
+#platform-edit-form {
+  background-color: var(--background-color);
+  padding: 15px;
+  border-radius: 10px;
+  min-width: 25vw;
+  max-width: 25vw;
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
 }
 
-nav {
-  background-color: lightcoral;
+
+/* ----------------------- Buttons ----------------------- */
+#new-platform-button,
+.companies-index-button,
+#company-confirm-button,
+#edit-platform-confirm-button,
+#edit-company-confirm-button,
+#chatbot-btn {
+  background-color: var(--button-color);
+  border: 1px solid black;
+  border-radius: 4px;
+  color: var(--button-font-color);
+}
+
+
+/* --------------------- Platforms Index Page --------------------- */
+#platforms-index-table {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+#platforms-index-title {
+  text-align: center;
+  margin-top: 13vmin;
+  margin-bottom: -8vmin;
+  color: var(--title-color);
+}
+
+#platforms-index-thead {
+  height: 18px;
+  margin-top: 14vmin;
+  width: 80vw;
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-bottom: 15px;
+}
+
+#platforms-index-thead-row {
   width: 100vw;
-  font-size: 4vmin;
-  min-height: 6vmin;
-  max-height: 6vmin;
-} */
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 1fr 1fr;
+  text-align: center;
+}
+
+#platforms-index-each-platform {
+  width: 80vw;
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 1fr 1fr;
+  background-color: var(--platform-color);
+  margin: 2px;
+  height: 30px;
+  font-size: 3vmin;
+  padding-top: 1vmin;
+  border-radius: 5px;
+}
+
+.platforms-index-buttons {
+  height: 20px;
+  padding: 0;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 4px;
+  color: black;
+}
+
+
+/* --------------------- Platforms New Page --------------------- */
+#add-platform-title {
+  color: var(--title-color);
+  padding-bottom: 3vmin;
+  font-size: 6vmin;
+  margin-top: 1vmin;
+}
+
+#new-platform-name-input { margin-left: 45px }
+#new-platform-description-input { margin-left: 6px }
+#new-platform-industry-input { margin-left: 28px }
+
+#new-platform-button {
+  width: 22.3vw;
+  margin-left: 2px;
+  margin-top: 3px;
+  margin-bottom: -3px;
+}
+
+
+/* --------------------- Favorites Index Page --------------------- */
+#favorites-title {
+  color: var(--title-color);
+  padding-bottom: 3vmin;
+  font-size: 6vmin;
+  margin-top: 13vmin;
+  margin-bottom: -13vmin;
+}
+
+
+/* --------------------- Companies Index Page --------------------- */
+#companies-index-title {
+  color: var(--title-color);
+  padding-bottom: 3vmin;
+  font-size: 6vmin;
+  margin-top: 2vmin;
+}
+
+#companies-index-form { flex-direction: column }
+
+.companies-index-row {
+  display: flex;
+  justify-content: flex-start;
+}
+
+#companies-index-name,
+#edit-platform-name {
+  margin-left: 80px;
+}
+
+#companies-index-description,
+#edit-platform-description {
+  margin-left: 42px;
+}
+
+#companies-index-industry,
+#edit-platform-industry {
+  margin-left: 64px;
+}
+
+#companies-index-company,
+#edit-platform-company-name {
+  margin-left: 14px;
+}
+
+#companies-index-year-created,
+#edit-platform-year {
+  margin-left: 34px;
+}
+
+#companies-index-website,
+#edit-platform-website {
+  margin-left: 66px;
+  margin-bottom: 5px;
+}
+
+#companies-index-buttons {
+  display: flex;
+  flex-direction: column;
+  color: var(--button-font-color);
+}
+
+.companies-index-button {
+  width: 52vmin;
+  margin: 2px;
+}
+
+
+/* --------------------- Companies New Page --------------------- */
+#new-company-title {
+  color: var(--title-color);
+  padding-bottom: 3vmin;
+  font-size: 6vmin;
+  margin-top: 2vmin;
+}
+
+#new-company-form {
+  min-width: 27vw;
+  max-width: 27vw;
+  flex-direction: column;
+}
+
+#new-company-name-input { margin-left: 3px }
+#new-company-year-input { margin-left: 23px }
+#new-company-website-input { margin-left: 55px} 
+
+#company-confirm-button {
+  width: 56.5vmin;
+  margin: 2px;
+  margin-top: 2px;
+  margin-bottom: -4px;
+}
+
+
+/* --------------------- Platform Edit Page --------------------- */
+#platform-edit-title,
+#chatbot-title {
+  color: var(--title-color);
+  padding-bottom: 3vmin;
+  font-size: 6vmin;
+  margin-top: 2vmin;
+}
+
+#platform-edit-form {
+  height: 70vh;
+  min-width: 26vw;
+  max-width: 26vw;
+  flex-direction: column;
+}
+
+#edit-platform-name-input {
+  margin-left: 58px;
+  margin-top: 10px;
+}
+
+#edit-platform-description-input { margin-left: 19px }
+#edit-platform-industry-input { margin-left: 40px }
+
+#edit-platform-company-name-input {
+  margin-top: 7px;
+  margin-left: 57px;
+}
+
+#edit-platform-year-input { margin-left: 10px }
+
+#edit-platform-website-input {
+  margin-left: 42px;
+  margin-bottom: 3px;
+}
+
+#edit-platform-confirm-button,
+#edit-company-confirm-button {
+  width: 54.5vmin;
+}
+
+
+/* --------------------- Chatbot Page --------------------- */
+#chatbot-response {
+  background-color: var(--background-color);
+  padding: 15px;
+  border-radius: 10px;
+  min-height: 20vh;
+  max-height: 20vh;
+  min-width: 50vw;
+  max-width: 50vw;
+  border: 1px solid black;
+  margin-bottom: 4px;
+}
+
+#chatbot-user-prompt {
+  min-width: 50vw;
+  min-height: 25vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
