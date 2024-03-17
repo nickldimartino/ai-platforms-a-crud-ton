@@ -18,6 +18,7 @@ body {
   background-size: cover;
   padding: 0;
   background-attachment: fixed;
+  margin-bottom: 10vmin;
 }
 
 /* Nav Bar */
@@ -136,7 +137,7 @@ a:hover { color: var(--nav-font-color) }
   grid-template-columns: 2fr 5fr 2fr 0.3fr 0.3fr;
   background-color: var(--platform-color);
   margin: 2px;
-  height: 100px;
+  height: 30px;
   font-size: 3vmin;
   padding-top: 1vmin;
   border-radius: 5px;
@@ -347,19 +348,19 @@ a:hover { color: var(--nav-font-color) }
 
 
 /* ---------------------------- Footer ---------------------------- */
-#footer {
+/* #footer {
   background-color: brown;
   color: ivory;
-  position: relative;
+  position: absolute;
   bottom: 0;
   right: 0;
+  left: 0;
   display: grid;
   grid-template-columns: 2.5fr 1fr 1fr 1fr 1fr 2fr;
   padding-top: 10px;
-  margin-top: 7vmin;
-}
+} */
 
-#name {
+/* #name {
   padding-left: 20px;
 }
 
@@ -379,4 +380,4 @@ a:hover { color: var(--nav-font-color) }
   display: flex;
   justify-content: flex-end;
   padding-right: 20px;
-}
+} */
