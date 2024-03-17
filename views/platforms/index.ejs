@@ -1,15 +1,13 @@
 <%- include("../partials/header"); %>
 
 <!-- display the AI Platform's -->
-<section id="platforms-index-table">
+<section id="platforms-index-page">
     <h1 id="platforms-index-title"><%= title %></h1>
-    <div id="platforms-index-thead">
-        <div id="platforms-index-thead-row">
+    <div id="platforms-index-head">
+        <div id="platforms-index-head-row">
             <div><strong>Name</strong></div>
             <div><strong>Description</strong></div>
             <div><strong>Industry</strong></div>
-            <div><strong>More Info</strong></div>
-            <div><strong>Favorite</strong></div>
         </div>
     </div>
     <% platforms.forEach(p => { %>
@@ -20,13 +18,13 @@
             <div>
                 <!-- GET request to view more info about the chosen AI Platform -->
                 <form action="/companies/<%= p._id %>" method="GET">
-                    <input type="submit" value="More Info" class="platforms-index-buttons">
+                    <input type="submit" value="" class="platforms-index-btns" id="platforms-index-info-btn">
                 </form>
             </div>
             <div>
                 <!-- POST request to favorite the chosen AI Platform -->
                 <form action="/favorites/<%= p.id %>" method="POST">
-                    <input type="submit" value="Favorite" class="platforms-index-buttons">
+                    <input type="submit" value="" class="platforms-index-btns" id="platforms-index-favorite-btn">
             </div>
         </div>
     <% }); %>

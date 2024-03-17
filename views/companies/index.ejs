@@ -36,19 +36,19 @@
         </div>
             <div id="companies-index-buttons">
             <!-- only display the "add company info" button if there is no company info -->
-              <% if (!platform.company) { %>
+            <% if (!platform.company) { %>
                 <form action="/companies/new/<%= platform._id %>" method="GET">
-                    <input type="submit" value="Add Company Info" class="companies-index-button">
+                    <input type="submit" value="Add Company Info" class="companies-index-btn">
                 </form>
-              <% } %>
+            <% } %>
                 <!-- GET request the edit the AI Platform's information -->
                 <form action="/platforms/<%= platform._id %>" method="GET">
-                    <input type="submit" value="Edit" class="companies-index-button">
+                    <input type="submit" value="Edit" class="companies-index-btn">
                 </form>
 
                 <!-- GET request the delete the AI Platform and it's associated information -->
                 <form action="/platforms/<%= platform._id %>?_method=DELETE" method="POST">
-                    <input type="submit" value="Delete" class="companies-index-button">
+                    <input type="submit" value="Delete" class="companies-index-btn">
                 </form>
             </div>
     </div>

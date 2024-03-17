@@ -1,20 +1,20 @@
 <%- include("../partials/header"); %>
 
 <!-- POST request to add a new AI Platform to the AI Platform's page -->
-<section id="add-platform-index-page">
-    <h1 id="add-platform-title"><%= title %></h1>
-    <div id="add-platform-form">
+<section id="platforms-new-index-page">
+    <h1 id="platforms-new-title"><%= title %></h1>
+    <div id="platforms-new-form">
         <form action="/platforms" method="POST">
             <label>Name:
-                <input type="text" name="name" id="new-platform-name-input">
+                <input type="text" name="name" id="platforms-new-name-input">
             </label><br>
             <label>Description:
-                <input type="text" name="description" id="new-platform-description-input">
+                <input type="text" name="description" id="platforms-new-description-input">
             </label><br>
             <label>Industry:
-                <input type="text" name="industry" id="new-platform-industry-input">
+                <input type="text" name="industry" id="platforms-new-industry-input">
             </label><br>
-            <input type="submit" value="Add AI Platform" id="new-platform-button">
+            <input type="submit" value="Add AI Platform" id="platforms-new-btn">
         </form>
     </div>
 </section>

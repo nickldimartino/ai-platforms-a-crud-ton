@@ -1,63 +1,63 @@
 <%- include("../partials/header"); %>
 
 <!-- display the AI Platform's information -->
-<section id="platform-edit-page">
-    <h1 id="platform-edit-title"><%= title %></h1>
-        <section id="platform-edit-form">
+<section id="platforms-edit-page">
+    <h1 id="platforms-edit-title"><%= title %></h1>
+        <section id="platforms-edit-form">
             <section>
                 <div>
                     <strong>Name: </strong>
-                    <span id="edit-platform-name"><%= platform.name %></span>
+                    <span id="platforms-edit-name"><%= platform.name %></span>
                 </div>
                 <div><strong>Description: </strong>
-                    <span id="edit-platform-description"><%= platform.description %></span>
+                    <span id="platforms-edit-description"><%= platform.description %></span>
                 </div>
                 <div><strong>Industry: </strong>
-                    <span id="edit-platform-industry"><%= platform.industry %></span>
+                    <span id="platforms-edit-industry"><%= platform.industry %></span>
                 </div>
                 <div><strong>Company Name: </strong>
-                    <% if (platform.company) { %>
-                        <span id="edit-platform-company-name"><%= platform.company.name %></span>
-                    <% } %>
+                <% if (platform.company) { %>
+                    <span id="platforms-edit-company-name"><%= platform.company.name %></span>
+                <% } %>
                 </div>
                 <div><strong>Year Created: </strong>
-                    <% if (platform.company) { %>
-                        <span id="edit-platform-year"><%= platform.company.yearCreated %></span>
-                    <% } %>
+                <% if (platform.company) { %>
+                    <span id="platforms-edit-year"><%= platform.company.yearCreated %></span>
+                <% } %>
                 </div>
                 <div><strong>Website: </strong>
-                    <% if (platform.company) { %>
-                        <span id="edit-platform-website"><%= platform.company.website %></span>
-                    <% } %>
+                <% if (platform.company) { %>
+                    <span id="platforms-edit-website"><%= platform.company.website %></span>
+                <% } %>
                 </div>
             </section>
 
             <!-- POST request to edit the chosen AI Platform's information -->
             <form id="new-form-platform" action="/platforms/<%= platform.id %>" method="POST">
                 <label>Name:
-                    <input type="text" name="name" id="edit-platform-name-input">
+                    <input type="text" name="name" id="platforms-edit-name-input">
                 </label><br>
                 <label>Description:
-                    <input type="text" name="description" id="edit-platform-description-input">
+                    <input type="text" name="description" id="platforms-edit-description-input">
                 </label><br>
                 <label>Industry:
-                    <input type="text" name="industry" id="edit-platform-industry-input">
+                    <input type="text" name="industry" id="platforms-edit-industry-input">
                 </label><br>
-                <input type="submit" value="Edit the AI Platform" id="edit-platform-confirm-button">
+                <input type="submit" value="Edit the AI Platform" id="platforms-edit-confirm-btn">
             </form>
             
             <!-- POST request to edit the chosen AI Platform's company information -->
             <form id="new-form-platform" action="/companies/<%= platform.id %>/edit" method="POST">
                 <label>Name:
-                    <input type="text" name="company-name" id="edit-platform-company-name-input">
+                    <input type="text" name="company-name" id="platforms-edit-company-name-input">
                 </label><br>
                 <label>Year Created:
-                    <input type="text" name="year-created" id="edit-platform-year-input">
+                    <input type="text" name="year-created" id="platforms-edit-year-input">
                 </label><br>
                 <label>Website:
-                    <input type="text" name="website" id="edit-platform-website-input">
+                    <input type="text" name="website" id="platforms-edit-website-input">
                 </label><br>
-                <input type="submit" value="Edit the AI Platform Company Info"id="edit-company-confirm-button">
+                <input type="submit" value="Edit the AI Platform Company Info"id="platforms-edit-company-confirm-btn">
             </form>
         </section>
 </section>

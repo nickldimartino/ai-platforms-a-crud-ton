@@ -1,34 +1,33 @@
 <%- include("../partials/header"); %>
 
 <!-- display the signed-in users favorited AI Platforms -->
-<section id="platforms-index-table">
-    <h1 id="favorites-title"><%= title %></h1>
-    <div id="platforms-index-thead">
-        <div id="platforms-index-thead-row">
-            <div>Name</div>
-            <div>Description</div>
-            <div>Industry</div>
-            <div>More Info</div>
-            <div>Delete</div>
+<section id="platforms-index-page">
+    <h1 id="favorites-index-title"><%= title %></h1>
+    <div id="platforms-index-head">
+        <div id="platforms-index-head-row">
+            <div><strong>Name</strong></div>
+            <div><strong>Description</strong></div>
+            <div><strong>Industry</strong></div>
         </div>
     </div>
     <% user.favorites.forEach(p => { %>
-        <div id="platforms-index-each-platform">
-            <div><%= p.name %></div>
-            <div><%= p.description %></div>
-            <div><%= p.industry %></div>
-            <div>
-                <!-- GET request to view more info about the chosen AI Platform -->
-                <form action="/companies/<%= p._id %>" method="GET">
-                    <input type="submit" value="More Info" class="platforms-index-buttons">
-                </form>
-            </div>
-            <div>
-                <!-- POST request to delete the current AI Platform from the user's favorited list -->
-                <form action="/favorites/<%= user._id %>/<%= p._id %>?_method=DELETE" method="POST">
-                    <input type="submit" value="Delete" class="platforms-index-buttons">
-            </div>
+    <div id="platforms-index-each-platform">
+        <div><%= p.name %></div>
+        <div><%= p.description %></div>
+        <div><%= p.industry %></div>
+        <div>
+            <!-- GET request to view more info about the chosen AI Platform -->
+            <form action="/companies/<%= p._id %>" method="GET">
+                <input type="submit" value="" class="platforms-index-btns" id="platforms-index-info-btn">
+            </form>
         </div>
+        <div>
+            <!-- POST request to delete the current AI Platform from the user's favorited list -->
+            <form action="/favorites/<%= user._id %>/<%= p._id %>?_method=DELETE" method="POST">
+                <input type="submit" value="" class="platforms-index-btns" id="favorites-index-delete-btn">
+            </form>
+        </div>
+    </div>
     <% }); %>
 </section>
 

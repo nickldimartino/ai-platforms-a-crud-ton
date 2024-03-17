@@ -1,16 +1,16 @@
 <%- include("../partials/header"); %>
 
 <!-- display the OpenAI generated response -->
-<section id="chatbot-page">
-    <h1 id="chatbot-title"><%= title %></h1>
-    <div id="chatbot-response">
+<section id="chatbots-index-page">
+    <h1 id="chatbots-index-title"><%= title %></h1>
+    <div id="chatbots-index-response">
         <%= response %>
     </div>
-    <div id="chatbot-user-propmt">
+    <div id="chatbots-index-user-propmt">
         <!-- POST request with the user inputted data -->
         <form action="/chatbots/new" method="POST">
-            <input type="text" name="inputText" placeholder="Enter your prompt here">
-            <input type="submit" value="Enter" id="chatbot-btn">
+            <input type="text" name="inputText" placeholder="Enter your prompt here...">
+            <input type="submit" value="Enter" id="chatbots-index-btn">
         </form>
     </div>
 </section>

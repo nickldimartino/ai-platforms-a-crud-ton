@@ -4,8 +4,8 @@
   --title-color: black;
   --nav-color: brown;
   --nav-font-color: ivory;
-  --button-color: brown;
-  --button-font-color: white;
+  --btn-color: brown;
+  --btn-font-color: ivory;
   --background-color: white;
   --platform-color: white;
 }
@@ -41,29 +41,23 @@ a {
 }
 
 /* Nav Bar Links on Hover */
-a:hover {
-  color: var(--nav-font-color);
-}
+a:hover { color: var(--nav-font-color) }
 
 /* Login Link Height */
-.login {
-  height: 34px;
-}
+.login { height: 34px }
 
 /* Login Link Image Height */
-.login img {
-  height: 30px;
-}
+.login img { height: 30px }
 
-#header-thead { height: 30px }
+#nav-thead { height: 30px }
 
 
 /* --------------------- Front Pages --------------------- */
-#add-platform-index-page,
+#platforms-new-index-page,
 #companies-index-page,
-#new-company-page,
-#platform-edit-page,
-#chatbot-page {
+#companies-new-page,
+#platforms-edit-page,
+#chatbots-index-page {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -72,10 +66,10 @@ a:hover {
 
 
 /* ------------------------ Forms ------------------------ */
-#add-platform-form,
+#platforms-new-form,
 #companies-index-form,
-#new-company-form,
-#platform-edit-form {
+#companies-new-form,
+#platforms-edit-form {
   background-color: var(--background-color);
   padding: 15px;
   border-radius: 10px;
@@ -88,21 +82,21 @@ a:hover {
 
 
 /* ----------------------- Buttons ----------------------- */
-#new-platform-button,
-.companies-index-button,
-#company-confirm-button,
-#edit-platform-confirm-button,
-#edit-company-confirm-button,
-#chatbot-btn {
-  background-color: var(--button-color);
+#platforms-new-btn,
+.companies-index-btn,
+#companies-new-confirm-btn,
+#platforms-edit-confirm-btn,
+#platforms-edit-company-confirm-btn,
+#chatbots-index-btn {
+  background-color: var(--btn-color);
   border: 1px solid black;
   border-radius: 4px;
-  color: var(--button-font-color);
+  color: var(--btn-font-color);
 }
 
 
 /* --------------------- Platforms Index Page --------------------- */
-#platforms-index-table {
+#platforms-index-page {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -117,7 +111,7 @@ a:hover {
   color: var(--title-color);
 }
 
-#platforms-index-thead {
+#platforms-index-head {
   height: 18px;
   margin-top: 14vmin;
   width: 80vw;
@@ -129,48 +123,57 @@ a:hover {
   margin-bottom: 15px;
 }
 
-#platforms-index-thead-row {
+#platforms-index-head-row {
   width: 100vw;
   display: grid;
-  grid-template-columns: 2fr 2fr 2fr 1fr 1fr;
+  grid-template-columns: 2fr 5fr 2fr 0.3fr 0.3fr;
   text-align: center;
 }
 
 #platforms-index-each-platform {
   width: 80vw;
   display: grid;
-  grid-template-columns: 2fr 2fr 2fr 1fr 1fr;
+  grid-template-columns: 2fr 5fr 2fr 0.3fr 0.3fr;
   background-color: var(--platform-color);
   margin: 2px;
-  height: 30px;
+  height: 100px;
   font-size: 3vmin;
   padding-top: 1vmin;
   border-radius: 5px;
 }
 
-.platforms-index-buttons {
-  height: 20px;
+.platforms-index-btns {
   padding: 0;
-  background-color: white;
-  border: 1px solid black;
-  border-radius: 4px;
-  color: black;
+  background-color: transparent;
+  border: none;
+  background-size: cover;
+}
+
+#platforms-index-info-btn {
+  background-image: url("https://www.thedataschool.co.uk/content/images/2023/06/information-button.png");
+  height: 20px;
+  width: 20px;
+}
+#platforms-index-favorite-btn {
+  background-image: url("https://t4.ftcdn.net/jpg/06/55/12/17/360_F_655121796_WgVfZM3S54acvmK2eBHfexjQgq0QdQvS.jpg");
+  height: 20px;
+  width: 20px;
 }
 
 
 /* --------------------- Platforms New Page --------------------- */
-#add-platform-title {
+#platforms-new-title {
   color: var(--title-color);
   padding-bottom: 3vmin;
   font-size: 6vmin;
   margin-top: 1vmin;
 }
 
-#new-platform-name-input { margin-left: 45px }
-#new-platform-description-input { margin-left: 6px }
-#new-platform-industry-input { margin-left: 28px }
+#platforms-new-name-input { margin-left: 45px }
+#platforms-new-description-input { margin-left: 6px }
+#platforms-new-industry-input { margin-left: 28px }
 
-#new-platform-button {
+#platforms-new-btn {
   width: 22.3vw;
   margin-left: 2px;
   margin-top: 3px;
@@ -179,12 +182,19 @@ a:hover {
 
 
 /* --------------------- Favorites Index Page --------------------- */
-#favorites-title {
+#favorites-index-title {
   color: var(--title-color);
   padding-bottom: 3vmin;
   font-size: 6vmin;
   margin-top: 13vmin;
   margin-bottom: -13vmin;
+}
+
+#favorites-index-delete-btn {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6g4lm8r-K6sADjtceXyS0PtNsVZTPBAkfBFsKVpbOuA&s");
+  margin-top: 2px;
+  height: 17px;
+  width: 17px;
 }
 
 
@@ -204,67 +214,67 @@ a:hover {
 }
 
 #companies-index-name,
-#edit-platform-name {
+#platforms-edit-name {
   margin-left: 80px;
 }
 
 #companies-index-description,
-#edit-platform-description {
+#platforms-edit-description {
   margin-left: 42px;
 }
 
 #companies-index-industry,
-#edit-platform-industry {
+#platforms-edit-industry {
   margin-left: 64px;
 }
 
 #companies-index-company,
-#edit-platform-company-name {
+#platforms-edit-company-name {
   margin-left: 14px;
 }
 
 #companies-index-year-created,
-#edit-platform-year {
+#platforms-edit-year {
   margin-left: 34px;
 }
 
 #companies-index-website,
-#edit-platform-website {
+#platforms-edit-website {
   margin-left: 66px;
   margin-bottom: 5px;
 }
 
-#companies-index-buttons {
+#companies-index-btns {
   display: flex;
   flex-direction: column;
-  color: var(--button-font-color);
+  color: var(--btn-font-color);
 }
 
-.companies-index-button {
+.companies-index-btn {
   width: 52vmin;
   margin: 2px;
 }
 
 
 /* --------------------- Companies New Page --------------------- */
-#new-company-title {
+#companies-new-title {
   color: var(--title-color);
   padding-bottom: 3vmin;
   font-size: 6vmin;
   margin-top: 2vmin;
 }
 
-#new-company-form {
+#companies-new-form {
   min-width: 27vw;
   max-width: 27vw;
   flex-direction: column;
 }
 
-#new-company-name-input { margin-left: 3px }
-#new-company-year-input { margin-left: 23px }
-#new-company-website-input { margin-left: 55px} 
+#companies-new-name-input { margin-left: 3px }
+#companies-new-year-input { margin-left: 23px }
+#companies-new-website-input { margin-left: 55px} 
 
-#company-confirm-button {
+#companies-new-confirm-btn {
   width: 56.5vmin;
   margin: 2px;
   margin-top: 2px;
@@ -273,49 +283,49 @@ a:hover {
 
 
 /* --------------------- Platform Edit Page --------------------- */
-#platform-edit-title,
-#chatbot-title {
+#platforms-edit-title,
+#chatbots-index-title {
   color: var(--title-color);
   padding-bottom: 3vmin;
   font-size: 6vmin;
   margin-top: 2vmin;
 }
 
-#platform-edit-form {
+#platforms-edit-form {
   height: 70vh;
   min-width: 26vw;
   max-width: 26vw;
   flex-direction: column;
 }
 
-#edit-platform-name-input {
+#platforms-edit-name-input {
   margin-left: 58px;
   margin-top: 10px;
 }
 
-#edit-platform-description-input { margin-left: 19px }
-#edit-platform-industry-input { margin-left: 40px }
+#platforms-edit-description-input { margin-left: 19px }
+#platforms-edit-industry-input { margin-left: 40px }
 
-#edit-platform-company-name-input {
+#platforms-edit-company-name-input {
   margin-top: 7px;
   margin-left: 57px;
 }
 
-#edit-platform-year-input { margin-left: 10px }
+#platforms-edit-year-input { margin-left: 10px }
 
-#edit-platform-website-input {
+#platforms-edit-website-input {
   margin-left: 42px;
   margin-bottom: 3px;
 }
 
-#edit-platform-confirm-button,
-#edit-company-confirm-button {
+#platforms-edit-confirm-btn,
+#platforms-edit-company-confirm-btn {
   width: 54.5vmin;
 }
 
 
 /* --------------------- Chatbot Page --------------------- */
-#chatbot-response {
+#chatbots-index-response {
   background-color: var(--background-color);
   padding: 15px;
   border-radius: 10px;
@@ -327,10 +337,46 @@ a:hover {
   margin-bottom: 4px;
 }
 
-#chatbot-user-prompt {
+#chatbots-index-user-prompt {
   min-width: 50vw;
   min-height: 25vh;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+
+/* ---------------------------- Footer ---------------------------- */
+#footer {
+  background-color: brown;
+  color: ivory;
+  position: relative;
+  bottom: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: 2.5fr 1fr 1fr 1fr 1fr 2fr;
+  padding-top: 10px;
+  margin-top: 7vmin;
+}
+
+#name {
+  padding-left: 20px;
+}
+
+.fa-linkedin-square {
+  font-size: 2em;
+} 
+
+.fa-github {
+  font-size: 2em;
+}
+
+.fa-envelope {
+  font-size: 2em;
+}
+
+#course {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
 }

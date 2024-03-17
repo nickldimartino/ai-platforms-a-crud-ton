@@ -1,20 +1,20 @@
 <%- include("../partials/header"); %>
 
 <!-- POST request to add new company info to the associated AI Platform -->
-<section id="new-company-page">
-    <h1 id="new-company-title"><%= title %></h1>
-    <div id="new-company-form">
+<section id="companies-new-page">
+    <h1 id="companies-new-title"><%= title %></h1>
+    <div id="companies-new-form">
         <form id="new-form-platform" action="/companies/<%= platformId %>" method="POST">
             <label>Company Name:
-                <input type="text" name="name" id="new-company-name-input">
+                <input type="text" name="name" id="companies-new-name-input">
             </label><br>
             <label>Year Created:
-                <input type="text" name="yearCreated" id="new-company-year-input">
+                <input type="text" name="yearCreated" id="companies-new-year-input">
             </label><br>
             <label>Website:
-                <input type="text" name="website" id="new-company-website-input">
+                <input type="text" name="website" id="companies-new-website-input">
             </label><br>
-            <input type="submit" value="Confirm Edit" id="company-confirm-button">
+            <input type="submit" value="Confirm Edit" id="companies-new-confirm-btn">
         </form>
     </div>
 </section>

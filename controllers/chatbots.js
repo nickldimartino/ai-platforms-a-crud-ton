@@ -36,7 +36,7 @@ async function newText(req, res) {
             "role": "user",
             "content": userPrompt                      // user inputted text to be generated from 
         }],
-        max_tokens: 50                                 // max number of characters to generate
+        max_tokens: 100                                // max number of characters to generate
     });
     response = response.choices[0].message.content;    // get the generated response from the generated object
 
