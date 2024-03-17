@@ -9,13 +9,14 @@ This is a comprehensive list of some of the more popular AI Platforms to date (M
 
 - Express
 - Node
+- MongoDB/Mongoose
 - OpenAI API
 - LangChain
 - OAuth with Passport and Google Strategy
 - Mocha/Chai
 - Postman/cURL
 - JavaScript
-- HTML
+- HTML/EJS
 - CSS
 
 # Getting Started
