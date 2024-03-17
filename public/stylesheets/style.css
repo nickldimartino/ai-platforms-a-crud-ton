@@ -25,12 +25,14 @@ body {
 nav {
   background-color: var(--nav-color);
   width: 100vw;
-  font-size: 3vmin;
   min-height: 8vmin;
   max-height: 8vmin;
   position: fixed;
   margin-top: 0;
-  padding-top: 1vmin;
+  padding-top: 2vmin;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  font-size: 3vmin;
 }
 
 /* Nav Bar Links */
@@ -44,13 +46,8 @@ a {
 /* Nav Bar Links on Hover */
 a:hover { color: var(--nav-font-color) }
 
-/* Login Link Height */
-.login { height: 34px }
-
 /* Login Link Image Height */
-.login img { height: 30px }
-
-#nav-thead { height: 30px }
+.login img { height: 4vmin; }
 
 
 /* --------------------- Front Pages --------------------- */
@@ -74,8 +71,8 @@ a:hover { color: var(--nav-font-color) }
   background-color: var(--background-color);
   padding: 15px;
   border-radius: 10px;
-  min-width: 25vw;
-  max-width: 25vw;
+  min-width: 325px;
+  max-width: 325px;
   display: flex;
   justify-content: center;
   border: 1px solid black;
@@ -125,21 +122,22 @@ a:hover { color: var(--nav-font-color) }
 }
 
 #platforms-index-head-row {
-  width: 100vw;
+  width: 1025px;
   display: grid;
-  grid-template-columns: 2fr 5fr 2fr 0.3fr 0.3fr;
+  grid-template-columns: 1.5fr 5fr 1.8fr 0.3fr 0.3fr;
   text-align: center;
 }
 
 #platforms-index-each-platform {
-  width: 80vw;
+  width: 1025px;
   display: grid;
-  grid-template-columns: 2fr 5fr 2fr 0.3fr 0.3fr;
+  grid-template-columns: 1.5fr 5fr 1.5fr 0.3fr 0.3fr;
   background-color: var(--platform-color);
   margin: 2px;
   height: 30px;
-  font-size: 3vmin;
-  padding-top: 1vmin;
+  font-size: 17px;
+  padding-top: 4px;
+  padding-left: 12px;
   border-radius: 5px;
 }
 
@@ -148,25 +146,22 @@ a:hover { color: var(--nav-font-color) }
   background-color: transparent;
   border: none;
   background-size: cover;
+  height: 20px;
+  width: 20px;
+  margin-top: 1px;
 }
 
 #platforms-index-info-btn {
   background-image: url("https://www.thedataschool.co.uk/content/images/2023/06/information-button.png");
-  height: 20px;
-  width: 20px;
-}
-#platforms-index-favorite-btn {
-  background-image: url("https://t4.ftcdn.net/jpg/06/55/12/17/360_F_655121796_WgVfZM3S54acvmK2eBHfexjQgq0QdQvS.jpg");
-  height: 20px;
-  width: 20px;
 }
 
 
 /* --------------------- Platforms New Page --------------------- */
-#platforms-new-title {
+#platforms-new-title,
+#companies-index-title,
+#companies-new-title {
   color: var(--title-color);
   padding-bottom: 3vmin;
-  font-size: 6vmin;
   margin-top: 1vmin;
 }
 
@@ -175,7 +170,7 @@ a:hover { color: var(--nav-font-color) }
 #platforms-new-industry-input { margin-left: 28px }
 
 #platforms-new-btn {
-  width: 22.3vw;
+  width: 287px;
   margin-left: 2px;
   margin-top: 3px;
   margin-bottom: -3px;
@@ -186,7 +181,6 @@ a:hover { color: var(--nav-font-color) }
 #favorites-index-title {
   color: var(--title-color);
   padding-bottom: 3vmin;
-  font-size: 6vmin;
   margin-top: 13vmin;
   margin-bottom: -13vmin;
 }
@@ -200,13 +194,6 @@ a:hover { color: var(--nav-font-color) }
 
 
 /* --------------------- Companies Index Page --------------------- */
-#companies-index-title {
-  color: var(--title-color);
-  padding-bottom: 3vmin;
-  font-size: 6vmin;
-  margin-top: 2vmin;
-}
-
 #companies-index-form { flex-direction: column }
 
 .companies-index-row {
@@ -252,22 +239,15 @@ a:hover { color: var(--nav-font-color) }
 }
 
 .companies-index-btn {
-  width: 52vmin;
+  width: 287px;
   margin: 2px;
 }
 
 
 /* --------------------- Companies New Page --------------------- */
-#companies-new-title {
-  color: var(--title-color);
-  padding-bottom: 3vmin;
-  font-size: 6vmin;
-  margin-top: 2vmin;
-}
-
 #companies-new-form {
-  min-width: 27vw;
-  max-width: 27vw;
+  min-width: 350px;
+  max-width: 350px;
   flex-direction: column;
 }
 
@@ -276,7 +256,7 @@ a:hover { color: var(--nav-font-color) }
 #companies-new-website-input { margin-left: 55px} 
 
 #companies-new-confirm-btn {
-  width: 56.5vmin;
+  width: 312px;
   margin: 2px;
   margin-top: 2px;
   margin-bottom: -4px;
@@ -288,15 +268,20 @@ a:hover { color: var(--nav-font-color) }
 #chatbots-index-title {
   color: var(--title-color);
   padding-bottom: 3vmin;
-  font-size: 6vmin;
   margin-top: 2vmin;
 }
 
 #platforms-edit-form {
-  height: 70vh;
-  min-width: 26vw;
-  max-width: 26vw;
+  height: 470px;
+  min-width: 335px;
+  max-width: 335px;
   flex-direction: column;
+}
+
+h5 {
+  text-align: center;
+  margin-bottom: -3px;
+  text-decoration: underline;
 }
 
 #platforms-edit-name-input {
@@ -321,19 +306,24 @@ a:hover { color: var(--nav-font-color) }
 
 #platforms-edit-confirm-btn,
 #platforms-edit-company-confirm-btn {
-  width: 54.5vmin;
+  width: 300px;
 }
 
 
 /* --------------------- Chatbot Page --------------------- */
+#chatbots-index-disclaimer {
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
 #chatbots-index-response {
   background-color: var(--background-color);
   padding: 15px;
   border-radius: 10px;
-  min-height: 20vh;
-  max-height: 20vh;
-  min-width: 50vw;
-  max-width: 50vw;
+  min-height: 150px;
+  max-height: 150px;
+  min-width: 600px;
+  max-width: 600px;
   border: 1px solid black;
   margin-bottom: 4px;
 }

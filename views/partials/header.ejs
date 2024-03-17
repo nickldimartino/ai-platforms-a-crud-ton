@@ -11,32 +11,23 @@
   </head>
   <body>
     <nav id="nav">
-      <table>
-        <thead id="nav-thead">
-          <tr>
-            <th>
-              <a href="/">Home Page</a>
-            </th>
-            <th>
-              <a href="/platforms">AI Platforms Page</a>
-            </th>
-            <th>
-              <a href="/platforms/new">Add AI Platform</a>
-            </th>
-            <th>
-              <a href="/favorites/index">Favorites</a>
-            </th>
-            <th>
-              <a href="/chatbots/index">Try Out an AI Chatbot!</a>
-            </th>
-            <th>
-            <% if (user) { %>
-              <a href="/logout">Log Out</a>
-            <% } else { %>
-              <a href="/auth/google" class="login">Log In&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
-            <% } %>
-            </th>
-          </tr>
-        </thead>
-      </table>
+      <div>
+        <a href="/platforms">AI Platforms Page</a>
+      </div>
+      <div>
+        <a href="/platforms/new">Add AI Platform</a>
+      </div>
+      <div>
+        <a href="/favorites/index">Favorites</a>
+      </div>
+      <div>
+        <a href="/chatbots/index">AI Chatbot</a>
+      </div>
+      <div>
+      <% if (user) { %>
+        <a href="/logout">Log Out</a>
+      <% } else { %>
+        <a href="/auth/google" class="login">Log In&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+      <% } %>
+      </div>
     </nav>

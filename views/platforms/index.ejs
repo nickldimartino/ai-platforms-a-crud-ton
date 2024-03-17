@@ -22,9 +22,19 @@
                 </form>
             </div>
             <div>
+                <!-- if a user is signed-in and the rendered AI Platform is in the user's favorites list -->
+                <!-- show a gold star, else show an empty star -->
+                <% if (user && userFavorites.includes(p.id)) { %>
                 <!-- POST request to favorite the chosen AI Platform -->
                 <form action="/favorites/<%= p.id %>" method="POST">
-                    <input type="submit" value="" class="platforms-index-btns" id="platforms-index-favorite-btn">
+                    <input type="image" value="" class="platforms-index-btns" src="https://t4.ftcdn.net/jpg/06/55/12/17/360_F_655121796_WgVfZM3S54acvmK2eBHfexjQgq0QdQvS.jpg">
+                </form>
+                <% } else { %>
+                <!-- POST request to favorite the chosen AI Platform -->
+                <form action="/favorites/<%= p.id %>" method="POST">
+                    <input type="image" value="" class="platforms-index-btns" src="https://cdn-icons-png.freepik.com/512/32/32172.png">
+                </form>
+                <% } %>
             </div>
         </div>
     <% }); %>

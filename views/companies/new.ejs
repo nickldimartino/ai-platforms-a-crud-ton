@@ -6,13 +6,13 @@
     <div id="companies-new-form">
         <form id="new-form-platform" action="/companies/<%= platformId %>" method="POST">
             <label>Company Name:
-                <input type="text" name="name" id="companies-new-name-input">
+                <input type="text" name="name" id="companies-new-name-input" required>
             </label><br>
             <label>Year Created:
-                <input type="text" name="yearCreated" id="companies-new-year-input">
+                <input type="text" name="yearCreated" id="companies-new-year-input" required>
             </label><br>
             <label>Website:
-                <input type="text" name="website" id="companies-new-website-input">
+                <input type="text" name="website" id="companies-new-website-input" required>
             </label><br>
             <input type="submit" value="Confirm Edit" id="companies-new-confirm-btn">
         </form>

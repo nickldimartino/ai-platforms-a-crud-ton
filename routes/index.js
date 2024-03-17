@@ -1,6 +1,7 @@
 // -------------------- Packages --------------------
 var express = require('express');
 var passport = require('passport');
+var platformsCtrl = require("../controllers/platforms");
 
 
 // --------------------- Router ---------------------
@@ -8,12 +9,8 @@ var router = express.Router();
 
 
 // --------------------- Routes ---------------------
-// GET route to the Home Page
-router.get('/', function(req, res, next) {
-  res.render('index', { 
-    title: 'AI Platforms Home Page'
-  });
-});
+// GET route to the Platforms Index Page
+router.get('/', platformsCtrl.index);
 
 // GET route to the Google OAuth login
 router.get('/auth/google', passport.authenticate(

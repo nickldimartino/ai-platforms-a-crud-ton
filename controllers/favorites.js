@@ -42,11 +42,12 @@ async function create(req, res) {
         user.favorites.push(platform._id);
         await user.save();
     }
-    
+
     // render the AI Platform's Index page with all the AI platforms
     res.render("platforms/index", {
         title: "AI Platforms: A CRUD-ton!",
         platforms,
+        userFavorites: user.favorites,
         errorMsg: ""
     });
 }

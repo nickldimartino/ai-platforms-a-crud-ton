@@ -18,10 +18,23 @@ module.exports = {
 // -------------------- Functions -------------------
 // Render the AI Platform's Index page with all the AI Platform's in MongoDB
 async function index(req, res) {
+    // get all of the AI Platforms from MongoDB
     const platforms = await Platform.find({});
+
+    // get the signed-in user from MongoDB
+    const user = await User.findById(req.user);
+
+    // if a user signed-in, save the user favorites in an array
+    let userFavorites = [];
+    if (user) {
+        userFavorites = user.favorites;
+    }
+
+    // render the AI Platforms Index page with teh AI Platforms and userFavorites
     res.render("platforms/index", {
         title: "AI Platforms: A CRUD-ton!",
         platforms,
+        userFavorites,
         errorMsg: ""
     });
 }

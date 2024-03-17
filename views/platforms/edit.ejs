@@ -32,6 +32,7 @@
                 </div>
             </section>
 
+            <h5><strong>Edit Platform Info</strong></h5>
             <!-- POST request to edit the chosen AI Platform's information -->
             <form id="new-form-platform" action="/platforms/<%= platform.id %>" method="POST">
                 <label>Name:
@@ -46,6 +47,7 @@
                 <input type="submit" value="Edit the AI Platform" id="platforms-edit-confirm-btn">
             </form>
             
+            <h5><strong>Edit Company Info</strong></h5>
             <!-- POST request to edit the chosen AI Platform's company information -->
             <form id="new-form-platform" action="/companies/<%= platform.id %>/edit" method="POST">
                 <label>Name:
