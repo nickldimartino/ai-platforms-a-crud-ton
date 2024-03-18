@@ -10,8 +10,11 @@ This is a comprehensive list of some of the more popular AI Platforms to date (M
 - Express
 - Node
 - MongoDB/Mongoose
-- OpenAI API
+- Groq
+- OpenAI
 - LangChain
+- LlamaIndex
+- Retrieval-Augmented Generation (RAG)
 - OAuth with Passport and Google Strategy
 - JavaScript
 - EJS
@@ -29,4 +32,3 @@ Link to the app coming soon...
 
 - Find and fix possible bugs
 - Refactor code
-- LangChain implementation
