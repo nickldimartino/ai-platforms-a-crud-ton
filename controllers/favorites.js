@@ -7,7 +7,11 @@ const User = require("../models/user");
 module.exports = {
     index,
     create,
-    delete: deleteFavorite
+    delete: deleteFavorite,
+    sortNamesAscend,
+    sortNamesDescend,
+    sortIndustryAscend,
+    sortIndustryDescend
 }
 
 
@@ -43,6 +47,13 @@ async function create(req, res) {
         await user.save();
     }
 
+    // sort the AI Platforms in ascending order
+    platforms.sort((a,b) => {
+        let textA = a.name.toUpperCase();
+        let textB = b.name.toUpperCase();
+        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+    });
+
     // render the AI Platform's Index page with all the AI platforms
     res.render("platforms/index", {
         title: "AI Platforms: A CRUD-ton!",
@@ -68,6 +79,86 @@ async function deleteFavorite(req, res) {
 
     // render the user's Favorite's Index page
     res.render(`favorites/index`, {
+        title: "Favorites List",
+        user,
+        errorMsg: ""
+    });
+}
+
+// Render the AI Platform's Favorites page with all the AI Platform's in MongoDB sorted by name in ascending order
+async function sortNamesAscend(req, res) {
+    // get the singed-in user's data from MongoDB and populate it's favorite's array
+    const user = await User.findById(req.user._id).populate("favorites");
+
+    // sort the AI Platforms in ascending order by name
+    user.favorites.sort((a,b) => {
+        let textA = a.name.toUpperCase();
+        let textB = b.name.toUpperCase();
+        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+    });
+
+    // render the AI Platforms Favorites page with teh AI Platforms and userFavorites
+    res.render("favorites/index", {
+        title: "Favorites List",
+        user,
+        errorMsg: ""
+    });
+}
+
+// Render the AI Platform's Favorites page with all the AI Platform's in MongoDB sorted by name in descending order
+async function sortNamesDescend(req, res) {
+    // get the singed-in user's data from MongoDB and populate it's favorite's array
+    const user = await User.findById(req.user._id).populate("favorites");
+
+    // sort the AI Platforms in ascending order by name
+    user.favorites.sort((a,b) => {
+        let textA = a.name.toUpperCase();
+        let textB = b.name.toUpperCase();
+        return (textA > textB) ? -1 : (textA < textB) ? 1 : 0;
+    });
+
+    // render the AI Platforms Favorites page with teh AI Platforms and userFavorites
+    res.render("favorites/index", {
+        title: "Favorites List",
+        user,
+        errorMsg: ""
+    });
+}
+
+// Render the AI Platform's Favorites page with all the AI Platform's in MongoDB sorted by industry in ascending order
+async function sortIndustryAscend(req, res) {
+    // get the singed-in user's data from MongoDB and populate it's favorite's array
+    const user = await User.findById(req.user._id).populate("favorites");
+
+    // sort the AI Platforms in ascending order by name
+    user.favorites.sort((a,b) => {
+        let textA = a.industry.toUpperCase();
+        let textB = b.industry.toUpperCase();
+        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+    });
+
+    // render the AI Platforms Favorites page with teh AI Platforms and userFavorites
+    res.render("favorites/index", {
+        title: "Favorites List",
+        user,
+        errorMsg: ""
+    });
+}
+
+// Render the AI Platform's Favorites page with all the AI Platform's in MongoDB sorted by industry in descending order
+async function sortIndustryDescend(req, res) {
+    // get the singed-in user's data from MongoDB and populate it's favorite's array
+    const user = await User.findById(req.user._id).populate("favorites");
+
+    // sort the AI Platforms in ascending order by name
+    user.favorites.sort((a,b) => {
+        let textA = a.industry.toUpperCase();
+        let textB = b.industry.toUpperCase();
+        return (textA > textB) ? -1 : (textA < textB) ? 1 : 0;
+    });
+
+    // render the AI Platforms Favorites page with teh AI Platforms and userFavorites
+    res.render("favorites/index", {
         title: "Favorites List",
         user,
         errorMsg: ""

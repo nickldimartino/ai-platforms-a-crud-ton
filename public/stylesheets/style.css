@@ -18,7 +18,6 @@ body {
   background-size: cover;
   padding: 0;
   background-attachment: fixed;
-  margin-bottom: 10vmin;
 }
 
 /* Nav Bar */
@@ -92,6 +91,34 @@ a:hover { color: var(--nav-font-color) }
   color: var(--btn-font-color);
 }
 
+#name-sort-btns,
+#industry-sort-btns {
+  background-color: transparent;
+  height: 10px;
+  width: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 96px;
+  margin-top: 4px;
+}
+
+#name-sort-btns {
+  margin-left: 81px;
+}
+
+#sort-names-ascend,
+#sort-industry-ascend {
+  height: 15px;
+  width: 15px;
+}
+
+#sort-names-descend,
+#sort-industry-descend {
+  height: 16.5px;
+  width: 16.5px;
+}
+
 
 /* --------------------- Platforms Index Page --------------------- */
 #platforms-index-page {
@@ -118,7 +145,7 @@ a:hover { color: var(--nav-font-color) }
   font-size: 20px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
 }
 
 #platforms-index-head-row {
@@ -338,19 +365,25 @@ h5 {
 
 
 /* ---------------------------- Footer ---------------------------- */
-/* #footer {
+#footer,
+#footer-scrollable {
   background-color: brown;
   color: ivory;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   right: 0;
   left: 0;
   display: grid;
   grid-template-columns: 2.5fr 1fr 1fr 1fr 1fr 2fr;
   padding-top: 10px;
-} */
+}
 
-/* #name {
+#footer-scrollable {
+  position: relative;
+  margin-top: 30px;
+}
+
+#name {
   padding-left: 20px;
 }
 
@@ -370,4 +403,4 @@ h5 {
   display: flex;
   justify-content: flex-end;
   padding-right: 20px;
-} */
+}

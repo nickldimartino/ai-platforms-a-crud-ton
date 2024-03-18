@@ -5,9 +5,31 @@
     <h1 id="favorites-index-title"><strong><%= title %></strong></h1>
     <div id="platforms-index-head">
         <div id="platforms-index-head-row">
-            <div><strong>Name</strong></div>
-            <div><strong>Description</strong></div>
-            <div><strong>Industry</strong></div>
+            <div>
+                <strong>Name</strong>
+                <div id="name-sort-btns">
+                    <form action="/favorites/sortNamesAscend" method="GET">
+                        <input type="image" value="" id="sort-names-ascend" src="https://cdn4.iconfinder.com/data/icons/arrows-246/24/Sort-Down-arrow-drop-triangle-512.png">
+                    </form>
+                    <form action="/favorites/sortNamesDescend" method="GET">
+                        <input type="image" value="" id="sort-names-descend" src="https://www.svgrepo.com/show/352496/sort-up.svg">
+                    </form>
+                </div>
+            </div>
+            <div>
+                <strong>Description</strong>
+            </div>
+            <div>
+                <strong>Industry</strong>
+                <div id="industry-sort-btns">
+                    <form  action="/favorites/sortIndustryAscend" method="GET">
+                        <input type="image" value="" id="sort-industry-ascend" src="https://cdn4.iconfinder.com/data/icons/arrows-246/24/Sort-Down-arrow-drop-triangle-512.png">
+                    </form>
+                    <form action="/favorites/sortIndustryDescend" method="GET">
+                        <input type="image" value="" id="sort-industry-descend" src="https://www.svgrepo.com/show/352496/sort-up.svg">
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
     <% user.favorites.forEach(p => { %>

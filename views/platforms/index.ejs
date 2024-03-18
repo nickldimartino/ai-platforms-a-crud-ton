@@ -5,9 +5,31 @@
     <h1 id="platforms-index-title"><strong><%= title %></strong></h1>
     <div id="platforms-index-head">
         <div id="platforms-index-head-row">
-            <div><strong>Name</strong></div>
-            <div><strong>Description</strong></div>
-            <div><strong>Industry</strong></div>
+            <div>
+                <strong>Name</strong>
+                <div id="name-sort-btns">
+                    <form action="/platforms/sortNamesAscend" method="GET">
+                        <input type="image" value="" id="sort-names-ascend" src="https://cdn4.iconfinder.com/data/icons/arrows-246/24/Sort-Down-arrow-drop-triangle-512.png">
+                    </form>
+                    <form action="/platforms/sortNamesDescend" method="GET">
+                        <input type="image" value="" id="sort-names-descend" src="https://www.svgrepo.com/show/352496/sort-up.svg">
+                    </form>
+                </div>
+            </div>
+            <div>
+                <strong>Description</strong>
+            </div>
+            <div>
+                <strong>Industry</strong>
+                <div id="industry-sort-btns">
+                    <form  action="/platforms/sortIndustryAscend" method="GET">
+                        <input type="image" value="" id="sort-industry-ascend" src="https://cdn4.iconfinder.com/data/icons/arrows-246/24/Sort-Down-arrow-drop-triangle-512.png">
+                    </form>
+                    <form action="/platforms/sortIndustryDescend" method="GET">
+                        <input type="image" value="" id="sort-industry-descend" src="https://www.svgrepo.com/show/352496/sort-up.svg">
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
     <% platforms.forEach(p => { %>
@@ -40,4 +62,4 @@
     <% }); %>
 </section>
 
-<%- include("../partials/footer"); %>
+<%- include("../partials/footer-scrollable"); %>

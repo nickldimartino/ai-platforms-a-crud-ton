@@ -11,7 +11,11 @@ module.exports = {
     create,
     edit,
     delete: deletePlatform,
-    show
+    show,
+    sortNamesAscend,
+    sortNamesDescend,
+    sortIndustryAscend,
+    sortIndustryDescend
 }
 
 
@@ -114,6 +118,126 @@ async function show(req, res) {
     res.render("platforms/edit", {
         title: "Edit the AI Platform Info",
         platform,
+        errorMsg: ""
+    });
+}
+
+// Render the AI Platform's Index page with all the AI Platform's in MongoDB sorted by name in ascending order
+async function sortNamesAscend(req, res) {
+    // get all of the AI Platforms from MongoDB
+    const platforms = await Platform.find({});
+
+    // sort the AI Platforms in ascending order by name
+    platforms.sort((a,b) => {
+        let textA = a.name.toUpperCase();
+        let textB = b.name.toUpperCase();
+        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+    });
+
+    // get the signed-in user from MongoDB
+    const user = await User.findById(req.user);
+
+    // if a user signed-in, save the user favorites in an array
+    let userFavorites = [];
+    if (user) {
+        userFavorites = user.favorites;
+    }
+
+    // render the AI Platforms Index page with teh AI Platforms and userFavorites
+    res.render("platforms/index", {
+        title: "AI Platforms: A CRUD-ton!",
+        platforms,
+        userFavorites,
+        errorMsg: ""
+    });
+}
+
+// Render the AI Platform's Index page with all the AI Platform's in MongoDB sorted by name in descending order
+async function sortNamesDescend(req, res) {
+    // get all of the AI Platforms from MongoDB
+    const platforms = await Platform.find({});
+
+    // sort the AI Platforms in descending order by name
+    platforms.sort((a,b) => {
+        let textA = a.name.toUpperCase();
+        let textB = b.name.toUpperCase();
+        return (textA > textB) ? -1 : (textA < textB) ? 1 : 0;
+    });
+
+    // get the signed-in user from MongoDB
+    const user = await User.findById(req.user);
+
+    // if a user signed-in, save the user favorites in an array
+    let userFavorites = [];
+    if (user) {
+        userFavorites = user.favorites;
+    }
+
+    // render the AI Platforms Index page with teh AI Platforms and userFavorites
+    res.render("platforms/index", {
+        title: "AI Platforms: A CRUD-ton!",
+        platforms,
+        userFavorites,
+        errorMsg: ""
+    });
+}
+
+// Render the AI Platform's Index page with all the AI Platform's in MongoDB sorted by industry in ascending order
+async function sortIndustryAscend(req, res) {
+    // get all of the AI Platforms from MongoDB
+    const platforms = await Platform.find({});
+
+    // sort the AI Platforms in ascending order by industry
+    platforms.sort((a,b) => {
+        let textA = a.industry.toUpperCase();
+        let textB = b.industry.toUpperCase();
+        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+    });
+
+    // get the signed-in user from MongoDB
+    const user = await User.findById(req.user);
+
+    // if a user signed-in, save the user favorites in an array
+    let userFavorites = [];
+    if (user) {
+        userFavorites = user.favorites;
+    }
+
+    // render the AI Platforms Index page with teh AI Platforms and userFavorites
+    res.render("platforms/index", {
+        title: "AI Platforms: A CRUD-ton!",
+        platforms,
+        userFavorites,
+        errorMsg: ""
+    });
+}
+
+// Render the AI Platform's Index page with all the AI Platform's in MongoDB sorted by industry in descending order
+async function sortIndustryDescend(req, res) {
+    // get all of the AI Platforms from MongoDB
+    const platforms = await Platform.find({});
+
+    // sort the AI Platforms in descending order by industry
+    platforms.sort((a,b) => {
+        let textA = a.industry.toUpperCase();
+        let textB = b.industry.toUpperCase();
+        return (textA > textB) ? -1 : (textA < textB) ? 1 : 0;
+    });
+
+    // get the signed-in user from MongoDB
+    const user = await User.findById(req.user);
+
+    // if a user signed-in, save the user favorites in an array
+    let userFavorites = [];
+    if (user) {
+        userFavorites = user.favorites;
+    }
+
+    // render the AI Platforms Index page with teh AI Platforms and userFavorites
+    res.render("platforms/index", {
+        title: "AI Platforms: A CRUD-ton!",
+        platforms,
+        userFavorites,
         errorMsg: ""
     });
 }
