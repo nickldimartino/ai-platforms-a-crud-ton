@@ -338,11 +338,6 @@ h5 {
 
 
 /* --------------------- Chatbot Page --------------------- */
-#chatbots-index-disclaimer {
-  margin-bottom: 10px;
-  font-size: 15px;
-}
-
 #chatbots-index-response {
   background-color: var(--background-color);
   padding: 15px;
@@ -361,6 +356,10 @@ h5 {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.chatbots-user-input {
+  width: 540px;
 }
 
 
@@ -383,21 +382,19 @@ h5 {
   margin-top: 30px;
 }
 
-#name {
-  padding-left: 20px;
+@media (min-width: 1300px) {
+  #footer-scrollable {
+    position: fixed;
+  }
 }
 
-.fa-linkedin-square {
-  font-size: 2em;
-} 
+#name { padding-left: 20px }
 
-.fa-github {
-  font-size: 2em;
-}
-
+.fa-linkedin-square,
+.fa-github,
 .fa-envelope {
   font-size: 2em;
-}
+} 
 
 #course {
   display: flex;

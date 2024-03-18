@@ -3,20 +3,58 @@
 <!-- display the OpenAI generated response -->
 <section id="chatbots-index-page">
     <h1 id="chatbots-index-title"><strong><%= title %></strong></h1>
-    <div id="chatbots-index-disclaimer">
-        <strong> Disclaimer: This feature may not work due to usage costs of the OpenAI API.  
-        If it does work, it is limited to 100 characters to reduce usage.</strong>
-    </div>
-    <div id="chatbots-index-response">
-        <%= response %>
-    </div>
+
+    <!-- Groq AI -->
+    <h3><strong>Groq</strong></h3>
+    <textarea id="chatbots-index-response">
+        <%= resGroq %>
+    </textarea>
     <div id="chatbots-index-user-propmt">
         <!-- POST request with the user inputted data -->
-        <form action="/chatbots/new" method="POST">
-            <input type="text" name="inputText" placeholder="Enter your prompt here...">
+        <form action="/chatbots/newGroq" method="POST">
+            <input type="text" name="inputText" placeholder="Enter your prompt here..." class="chatbots-user-input">
+            <input type="submit" value="Enter" id="chatbots-index-btn">
+        </form>
+    </div>
+
+    <!-- OpenAI -->
+    <h3><strong>OpenAI</strong></h3>
+    <textarea id="chatbots-index-response">
+        <%= resOpenAI %>
+    </textarea>
+    <div id="chatbots-index-user-propmt">
+        <!-- POST request with the user inputted data -->
+        <form action="/chatbots/newOpenAI" method="POST">
+            <input type="text" name="inputText" placeholder="Enter your prompt here..." class="chatbots-user-input">
+            <input type="submit" value="Enter" id="chatbots-index-btn">
+        </form>
+    </div>
+
+    <!-- Langchain -->
+    <h3><strong>Langchain</strong></h3>
+    <textarea id="chatbots-index-response">
+        <%= resLangchain %>
+    </textarea>
+    <div id="chatbots-index-user-propmt">
+        <!-- POST request with the user inputted data -->
+        <form action="/chatbots/newLangchain" method="POST">
+            <input type="text" name="inputText" placeholder="Enter your prompt here..." class="chatbots-user-input">
+            <input type="submit" value="Enter" id="chatbots-index-btn">
+        </form>
+    </div>
+
+    <!-- LlamaIndex -->
+    <h3><strong>LlamaIndex</strong></h3>
+    <textarea id="chatbots-index-response">
+        <%= resLlamaIndex %>
+    </textarea>
+    <div id="chatbots-index-user-propmt">
+        <!-- POST request with the user inputted data -->
+        <form action="/chatbots/newLlamaIndex" method="POST">
+            <input type="text" name="inputText" placeholder="Enter your prompt here..." class="chatbots-user-input">
             <input type="submit" value="Enter" id="chatbots-index-btn">
         </form>
     </div>
 </section>
 
-<%- include("../partials/footer"); %>
+<%- include("../partials/footer-scrollable"); %>
