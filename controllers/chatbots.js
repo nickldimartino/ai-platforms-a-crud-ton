@@ -1,6 +1,6 @@
 // -------------------- Packages --------------------
-var OpenAI = require("openai");
 var GroqSDK = require("groq-sdk");
+var OpenAI = require("openai");
 var { ChatGroq } = require("@langchain/groq");
 var { ChatPromptTemplate } = require("@langchain/core/prompts");
 var fs = require("node:fs/promises");
@@ -8,19 +8,23 @@ var { Document, Groq, VectorStoreIndex, serviceContextFromDefaults } = require("
 
 
 // -------------------- API Keys --------------------
+// for use in the Groq Chatbot
+const groqSdk = new GroqSDK((
+    api_key = process.env.GROQ_API_KEY
+));
+
+// for use in the OpenAI Chatbot
 const openai = new OpenAI({
     apiKey: process.env.GROQ_API_KEY,
     baseURL: "https://api.groq.com/openai/v1"
 });
 
-const groqSdk = new GroqSDK((
-    api_key = process.env.GROQ_API_KEY
-));
-
+// for use in the Langchain Chatbot
 const groq = new Groq((
     api_key = process.env.GROQ_API_KEY
 ));
 
+// for use in the LlamaIndex Chatbot
 const model = new ChatGroq({
     apiKey: process.env.GROQ_API_KEY,
 });
@@ -29,8 +33,8 @@ const model = new ChatGroq({
 // ---------------- Export Functions ----------------
 module.exports = {
     index,
-    newOpenAI: newOpenAI,
     newGroq: newGroq,
+    newOpenAI: newOpenAI,
     newLangchain: newLangchain,
     newLlamaIndex: newLlamaIndex
 }
@@ -51,7 +55,8 @@ function index(req, res) {
 
 // Render the AI response from Groq
 async function newGroq(req, res) {
-    const userPrompt = req.body.inputText;             // get the user inputted text
+     // get the user inputted text
+    const userPrompt = req.body.inputText;           
 
     // generate the response
     const completion = await groqSdk.chat.completions
@@ -62,7 +67,7 @@ async function newGroq(req, res) {
           content: userPrompt,
         },
       ],
-      model: "mixtral-8x7b-32768",
+      model: "mixtral-8x7b-32768",   // Large-Language Model (LLM)
     })
     .then((chatCompletion) => {
         // save the AI response
@@ -71,8 +76,8 @@ async function newGroq(req, res) {
         // render the response on the Chatbots Index page
         res.render("chatbots/index", {
             title: "AI Chatbots",
-            resOpenAI: "",
             resGroq,
+            resOpenAI: "",
             resLangchain: "",
             resLlamaIndex: "",
             errorMsg: ""
@@ -82,7 +87,8 @@ async function newGroq(req, res) {
 
 // Render the AI response from the OpenAI
 async function newOpenAI(req, res) {
-    const userPrompt = req.body.inputText;             // get the user inputted text
+    // get the user inputted text
+    const userPrompt = req.body.inputText;           
 
     // generate the response
     var resOpenAI = await openai.chat.completions.create({
@@ -90,17 +96,17 @@ async function newOpenAI(req, res) {
             role: "system", 
             content: userPrompt 
         }],
-        model: "mixtral-8x7b-32768",
+        model: "mixtral-8x7b-32768",    // Large-Language Model (LLM)
       });
 
-      // save the AI response
+    // save the AI response
     resOpenAI = resOpenAI.choices[0].message.content;
 
     // render the response on the Chatbots Index page
     res.render("chatbots/index", {
         title: "AI Chatbots",
-        resOpenAI,
         resGroq: "",
+        resOpenAI,
         resLangchain: "",
         resLlamaIndex: "",
         errorMsg: ""
@@ -109,15 +115,19 @@ async function newOpenAI(req, res) {
 
 // Render the AI response from Langchain
 async function newLangchain(req, res) {
-    const userPrompt = req.body.inputText;             // get the user inputted text
+    // get the user inputted text
+    const userPrompt = req.body.inputText; 
 
+    // create the prompt template
     const prompt = ChatPromptTemplate.fromMessages([
         ["system", "You are a helpful assistant"],
         ["human", "{input}"],
     ]);
 
+    // set up the Large-Language Model (LLM)
     const chain = prompt.pipe(model);
 
+    // generate the response
     const response = await chain.invoke({
         input: userPrompt,
     });
@@ -128,8 +138,8 @@ async function newLangchain(req, res) {
     // render the response on the Chatbots Index page
     res.render("chatbots/index", {
         title: "AI Chatbots",
-        resOpenAI: "",
         resGroq: "",
+        resOpenAI: "",
         resLangchain,
         resLlamaIndex: "",
         errorMsg: ""
@@ -138,12 +148,20 @@ async function newLangchain(req, res) {
 
 // Render the AI response from LlamaIndex
 async function newLlamaIndex(req, res) {
-    const userPrompt = req.body.inputText;             // get the user inputted text
+    // get the user inputted text
+    const userPrompt = req.body.inputText;
 
+    // use the Groq Large-Language Model (LLM)
     const serviceContext = serviceContextFromDefaults({ llm: groq });
+
+    // provide document to train the AI on a specific set of data
+    // Retrieval-Augmented Generation (RAG) - Providing an LLM with more info to "train the AI"
     const path = "node_modules/llamaindex/examples/abramov.txt";
+    // const path = "me.txt";                         
     const essay = await fs.readFile(path, "utf-8");
     const document = new Document({ text: essay, id_: "essay" });
+
+    // use the LLM and the document provided as a source of data
     const index = await VectorStoreIndex.fromDocuments([document], {
         serviceContext,
     });
@@ -151,6 +169,8 @@ async function newLlamaIndex(req, res) {
     const queryEngine = index.asQueryEngine({
         retriever,
     });
+    
+    // generate the response
     const query = userPrompt;
     const response = await queryEngine.query({
         query,
@@ -162,8 +182,8 @@ async function newLlamaIndex(req, res) {
     // render the response on the Chatbots Index page
     res.render("chatbots/index", {
         title: "AI Chatbots",
-        resOpenAI: "",
         resGroq: "",
+        resOpenAI: "",
         resLangchain: "",
         resLlamaIndex,
         errorMsg: ""
