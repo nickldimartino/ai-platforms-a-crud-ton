@@ -93,7 +93,6 @@ a:hover { color: var(--nav-font-color) }
 
 #name-sort-btns,
 #industry-sort-btns {
-  background-color: transparent;
   height: 10px;
   width: 10px;
   display: flex;
@@ -161,11 +160,17 @@ a:hover { color: var(--nav-font-color) }
   grid-template-columns: 1.5fr 5fr 1.5fr 0.3fr 0.3fr;
   background-color: var(--platform-color);
   margin: 2px;
-  height: 30px;
+  height: 40px;
   font-size: 17px;
-  padding-top: 4px;
+  padding-top: 8px;
   padding-left: 12px;
   border-radius: 5px;
+}
+
+#platform-descriptions {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
 }
 
 .platforms-index-btns {

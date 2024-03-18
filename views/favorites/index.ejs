@@ -35,7 +35,7 @@
     <% user.favorites.forEach(p => { %>
     <div id="platforms-index-each-platform">
         <div><%= p.name %></div>
-        <div><%= p.description %></div>
+        <div id="platform-descriptions"><%= p.description %></div>
         <div><%= p.industry %></div>
         <div>
             <!-- GET request to view more info about the chosen AI Platform -->
