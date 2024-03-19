@@ -45,11 +45,13 @@
                 <form action="/platforms/<%= platform._id %>" method="GET">
                     <input type="submit" value="Edit" class="companies-index-btn">
                 </form>
-
-                <!-- GET request the delete the AI Platform and it's associated information -->
-                <form action="/platforms/<%= platform._id %>?_method=DELETE" method="POST">
-                    <input type="submit" value="Delete" class="companies-index-btn">
-                </form>
+                <!-- only the creator of the website can delete individual AI Platforms -->
+                <% if (user.name === "Nicholas DiMartino") { %>
+                    <!-- GET request the delete the AI Platform and it's associated information -->
+                    <form action="/platforms/<%= platform._id %>?_method=DELETE" method="POST">
+                        <input type="submit" value="Delete" class="companies-index-btn">
+                    </form>
+                <% } %>
             </div>
     </div>
 </section>

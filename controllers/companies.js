@@ -1,6 +1,7 @@
 // -------------------- Packages --------------------
 const Company = require("../models/company");
 const Platform = require("../models/platform");
+const User = require("../models/user");
 
 
 // ---------------- Export Functions ----------------
@@ -17,11 +18,13 @@ module.exports = {
 async function index(req, res) {
     // get the chosen platform in MongoDB and populate the company array with the reference ID
     const platform = await Platform.findById(req.params.id).populate("company");
+    const user = await User.findById(req.user);
 
     // render the companies index page
     res.render("companies/index", {
         title: "Company's Info Page",
-        platform,            
+        platform,
+        user,        
         errorMsg: ""
     });
 }
