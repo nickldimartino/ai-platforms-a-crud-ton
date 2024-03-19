@@ -1,5 +1,5 @@
 # AI Platforms: A CRUD-ton!
-This is a comprehensive list of some of the more popular AI Platforms to date (March 2024).  Under the instruction to create a CRUD app using JavaScript, HTML, CSS, Node, and Express, I decided to created a list of AI Platforms to condense the immense amount of information on the internet.  Bonus implementation includes OAuth, the OpenAI API, and Mocha/Chai testing.  Using OAuth with Passport and Google Strategy, any user can sign in, view the list of AI Platforms, and add them to their favorite's list.  The OpenAI implementation was added to give users a try at a small AI chatbot which can generate a prompt based on the user's input.
+This is a comprehensive list of some of the more popular AI Platforms to date (March 2024).  Under the instruction to create a CRUD app using JavaScript, HTML, CSS, Node, and Express, I decided to created a list of AI Platforms to condense the immense amount of information on the internet.  Bonus implementation includes OAuth, the OpenAI API, and Mocha/Chai testing.  Using OAuth with Passport and Google Strategy, any user can sign in, view the list of AI Platforms, and add them to their favorite's list.  The OpenAI implementation was added to give users a try at a small AI chatbot which can generate a prompt based on the user's input.  Jest and Postman were used to test the HTTP requests of the application
 
 # Screenshot
 
@@ -10,6 +10,7 @@ This is a comprehensive list of some of the more popular AI Platforms to date (M
 - Express
 - Node
 - MongoDB/Mongoose
+- Jest
 - Groq
 - OpenAI
 - LangChain
