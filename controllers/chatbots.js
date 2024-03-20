@@ -15,6 +15,11 @@ const groqSdk = new GroqSDK((
 
 // for use in the OpenAI Chatbot
 const openai = new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY
+});
+
+// for use in the OpenAI Chatbot
+const openaiGroq = new OpenAI({
     apiKey: process.env.GROQ_API_KEY,
     baseURL: "https://api.groq.com/openai/v1"
 });
@@ -33,10 +38,11 @@ const model = new ChatGroq({
 // ---------------- Export Functions ----------------
 module.exports = {
     index,
-    newGroq: newGroq,
-    newOpenAI: newOpenAI,
-    newLangchain: newLangchain,
-    newLlamaIndex: newLlamaIndex
+    newGroq,
+    newOpenAI,
+    newImage,
+    newLangchain,
+    newLlamaIndex
 }
 
 
@@ -46,8 +52,10 @@ function index(req, res) {
     res.render("chatbots/index", {
         title: "AI Chatbots",
         resGroq: "",
-        resOpenAI: "",                                                           
+        resOpenAI: "",     
+        resDisplayImage: "",                                                      
         resLangchain: "",
+        resLangchainImage: "",
         resLlamaIndex: "",
         errorMsg: ""
     });
@@ -78,7 +86,9 @@ async function newGroq(req, res) {
             title: "AI Chatbots",
             resGroq,
             resOpenAI: "",
+            resDisplayImage: "",
             resLangchain: "",
+            resLangchainImage: "",
             resLlamaIndex: "",
             errorMsg: ""
         });
@@ -91,7 +101,7 @@ async function newOpenAI(req, res) {
     const userPrompt = req.body.inputText;           
 
     // generate the response
-    var resOpenAI = await openai.chat.completions.create({
+    var resOpenAI = await openaiGroq.chat.completions.create({
         messages: [{ 
             role: "system", 
             content: userPrompt 
@@ -107,7 +117,37 @@ async function newOpenAI(req, res) {
         title: "AI Chatbots",
         resGroq: "",
         resOpenAI,
+        resDisplayImage: "",
         resLangchain: "",
+        resLangchainImage: "",
+        resLlamaIndex: "",
+        errorMsg: ""
+    });
+}
+
+// Render the AI response image from the OpenAI
+async function newImage(req, res) {
+    // get the user inputted text
+    const userPrompt = req.body.inputText;           
+
+    // generate the response image
+    var resImage = await openai.images.generate({
+        prompt: userPrompt,
+        n: 1,
+        size: "512x512"
+    });
+
+    // save the AI response image
+    resDisplayImage = resImage.data[0].url;
+
+    // render the response image on the Chatbots Index page
+    res.render("chatbots/index", {
+        title: "AI Chatbots",
+        resGroq: "",
+        resOpenAI: "",
+        resDisplayImage,
+        resLangchain: "",
+        resLangchainImage: "",
         resLlamaIndex: "",
         errorMsg: ""
     });
@@ -116,13 +156,20 @@ async function newOpenAI(req, res) {
 // Render the AI response from Langchain
 async function newLangchain(req, res) {
     // get the user inputted text
-    const userPrompt = req.body.inputText; 
+    const userPrompt = req.body.inputPrompt; 
+    const userSystem = req.body.inputSystem; 
 
     // create the prompt template
     const prompt = ChatPromptTemplate.fromMessages([
-        ["system", "You are a helpful assistant"],
+        ["system", `You are a ${userSystem}`],
         ["human", "{input}"],
     ]);
+
+    let resImage = await openai.images.generate({
+        prompt: userSystem,
+        n: 1,
+        size: "256x256"
+    });
 
     // set up the Large-Language Model (LLM)
     const chain = prompt.pipe(model);
@@ -134,13 +181,16 @@ async function newLangchain(req, res) {
 
     // save the AI response
     let resLangchain = response.content;
+    let resLangchainImage = resImage.data[0].url;
     
     // render the response on the Chatbots Index page
     res.render("chatbots/index", {
         title: "AI Chatbots",
         resGroq: "",
         resOpenAI: "",
+        resDisplayImage: "",
         resLangchain,
+        resLangchainImage,
         resLlamaIndex: "",
         errorMsg: ""
     });
@@ -184,7 +234,9 @@ async function newLlamaIndex(req, res) {
         title: "AI Chatbots",
         resGroq: "",
         resOpenAI: "",
+        resDisplayImage: "",
         resLangchain: "",
+        resLangchainImage: "",
         resLlamaIndex,
         errorMsg: ""
     });

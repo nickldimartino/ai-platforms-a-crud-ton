@@ -18,6 +18,9 @@ router.get('/index', ensureLoggedIn, chatbotsCtrl.index);
 // POST route to generate a new OpenAI chat from the prompt
 router.post("/newOpenAI", ensureLoggedIn, chatbotsCtrl.newOpenAI);  
 
+// POST route to generate a new OpenAI image from the prompt
+router.post("/newImage", ensureLoggedIn, chatbotsCtrl.newImage);  
+
 // POST route to generate a new Groq AI chat from the prompt
 router.post("/newGroq", ensureLoggedIn, chatbotsCtrl.newGroq);  
 

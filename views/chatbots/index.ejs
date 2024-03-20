@@ -1,7 +1,7 @@
 <%- include("../partials/header"); %>
 
 <!-- display the OpenAI generated response -->
-<section id="chatbots-index-page">
+<section id="chatbots-index-page"">
     <h1 id="chatbots-index-title"><strong><%= title %></strong></h1>
 
     <!-- Groq AI -->
@@ -13,7 +13,7 @@
         <!-- POST request with the user inputted data -->
         <form action="/chatbots/newGroq" method="POST">
             <input type="text" name="inputText" placeholder="Enter your prompt here..." class="chatbots-user-input">
-            <input type="submit" value="Enter" id="chatbots-index-btn">
+            <input type="submit" value="Enter" class="chatbots-index-btn">
         </form>
     </div>
 
@@ -26,20 +26,35 @@
         <!-- POST request with the user inputted data -->
         <form action="/chatbots/newOpenAI" method="POST">
             <input type="text" name="inputText" placeholder="Enter your prompt here..." class="chatbots-user-input">
-            <input type="submit" value="Enter" id="chatbots-index-btn">
+            <input type="submit" value="Enter" class="chatbots-index-btn">
+        </form>
+    </div>
+
+    <!-- OpenAI Image Generation -->
+    <h3><strong>OpenAI Image Generation</strong></h3>
+    <img id="chatbots-image-response" src="<%= resDisplayImage %>" alt="">
+    <div id="chatbots-index-user-propmt">
+        <!-- POST request with the user inputted data -->
+        <form action="/chatbots/newImage" method="POST">
+            <input type="text" name="inputText" placeholder="What type of image would you like to see?" id="chatbots-image-input">
+            <input type="submit" value="Enter" class="chatbots-index-btn">
         </form>
     </div>
 
     <!-- Langchain -->
     <h3><strong>Langchain</strong></h3>
+    <img id="chatbots-langchain-person-image" src="<%= resLangchainImage %>" alt="">
     <textarea id="chatbots-index-response">
         <%= resLangchain %>
     </textarea>
     <div id="chatbots-index-user-propmt">
         <!-- POST request with the user inputted data -->
         <form action="/chatbots/newLangchain" method="POST">
-            <input type="text" name="inputText" placeholder="Enter your prompt here..." class="chatbots-user-input">
-            <input type="submit" value="Enter" id="chatbots-index-btn">
+            <div id="chatbots-langchain-prompts">
+                <input type="text" name="inputSystem" placeholder="Enter a famous person you'd like to talk to..." class="chatbots-user-input">
+                <input type="text" name="inputPrompt" placeholder="Enter your prompt here..." class="chatbots-user-input">
+                <input type="submit" value="Enter" id="chatbots-langchain-enter-btn">
+            </div>
         </form>
     </div>
 
@@ -52,7 +67,7 @@
         <!-- POST request with the user inputted data -->
         <form action="/chatbots/newLlamaIndex" method="POST">
             <input type="text" name="inputText" placeholder="Enter your prompt here..." class="chatbots-user-input">
-            <input type="submit" value="Enter" id="chatbots-index-btn">
+            <input type="submit" value="Enter" class="chatbots-index-btn">
         </form>
     </div>
 </section>
