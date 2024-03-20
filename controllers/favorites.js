@@ -47,13 +47,6 @@ async function create(req, res) {
         await user.save();
     }
 
-    // sort the AI Platforms in ascending order
-    platforms.sort((a,b) => {
-        let textA = a.name.toUpperCase();
-        let textB = b.name.toUpperCase();
-        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-    });
-
     // render the AI Platform's Index page with all the AI platforms
     res.render("platforms/index", {
         title: "AI Platforms: A CRUD-ton!",
