@@ -29,7 +29,7 @@ This is a CRUD (Create, Replace, Update, Delete) app centered around popular AI 
 Link to the Trello board to view User Stories and Project Planning:
 https://trello.com/invite/b/wxJJovTM/ATTIe2671fe1c19bf987e8e016b85b7b29e5F84E9127/ai-program-list
 
-Link to the app hosted on Heroku
+Link to the app hosted on Heroku:
 https://ai-platforms-list-crud-64ab4f9bb249.herokuapp.com/platforms
 
 # Next Steps
