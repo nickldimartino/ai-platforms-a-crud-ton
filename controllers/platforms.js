@@ -20,7 +20,7 @@ module.exports = {
 
 
 // -------------------- Functions -------------------
-// Render the AI Platform's Index page with all the AI Platform's in MongoDB
+// render the AI Platform's Index page with all the AI Platform's in MongoDB
 async function index(req, res) {
     // get all of the AI Platforms from MongoDB
     const platforms = await Platform.find({});
@@ -43,7 +43,7 @@ async function index(req, res) {
     });
 }
 
-// Render the New AI Platform page to allow users to add a new AI Platform
+// render the New AI Platform page to allow users to add a new AI Platform
 function newPlatform(req, res) {
     res.render("platforms/new", {
         title: "Add a New AI Platform",
@@ -68,7 +68,7 @@ async function create(req, res) {
     }
 }
 
-// Edit the chosen AI Platform's info
+// edit the chosen AI Platform's info
 async function edit(req, res) {
     // get the chocen AI Platform in MongoDB
     const platform = await Platform.findById(req.params.id);
@@ -85,7 +85,7 @@ async function edit(req, res) {
     res.redirect("/platforms");
 }
 
-// Delete the chosen AI Platform
+// delete the chosen AI Platform
 async function deletePlatform(req, res) {
     // get the chocsen AI Platform from MongoDB
     const platform = await Platform.findById(req.params.id);
@@ -109,7 +109,7 @@ async function deletePlatform(req, res) {
     res.redirect("/platforms");
 }
 
-// Render the AI Platform's edit page
+// render the AI Platform's edit page
 async function show(req, res) {
     // get the chosen AI Platform from MongoDB and populate it's company array
     const platform = await Platform.findById(req.params.id).populate("company");
@@ -122,7 +122,7 @@ async function show(req, res) {
     });
 }
 
-// Render the AI Platform's Index page with all the AI Platform's in MongoDB sorted by name in ascending order
+// render the AI Platform's Index page with all the AI Platform's in MongoDB sorted by name in ascending order
 async function sortNamesAscend(req, res) {
     // get all of the AI Platforms from MongoDB
     const platforms = await Platform.find({});
@@ -152,7 +152,7 @@ async function sortNamesAscend(req, res) {
     });
 }
 
-// Render the AI Platform's Index page with all the AI Platform's in MongoDB sorted by name in descending order
+// render the AI Platform's Index page with all the AI Platform's in MongoDB sorted by name in descending order
 async function sortNamesDescend(req, res) {
     // get all of the AI Platforms from MongoDB
     const platforms = await Platform.find({});
@@ -182,7 +182,7 @@ async function sortNamesDescend(req, res) {
     });
 }
 
-// Render the AI Platform's Index page with all the AI Platform's in MongoDB sorted by industry in ascending order
+// render the AI Platform's Index page with all the AI Platform's in MongoDB sorted by industry in ascending order
 async function sortIndustryAscend(req, res) {
     // get all of the AI Platforms from MongoDB
     const platforms = await Platform.find({});
@@ -212,7 +212,7 @@ async function sortIndustryAscend(req, res) {
     });
 }
 
-// Render the AI Platform's Index page with all the AI Platform's in MongoDB sorted by industry in descending order
+// render the AI Platform's Index page with all the AI Platform's in MongoDB sorted by industry in descending order
 async function sortIndustryDescend(req, res) {
     // get all of the AI Platforms from MongoDB
     const platforms = await Platform.find({});

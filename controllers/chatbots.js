@@ -47,7 +47,7 @@ module.exports = {
 
 
 // -------------------- Functions -------------------
-// Render the Chatbots index page with empty AI chat responses
+// render the Chatbots index page with empty AI chat responses
 function index(req, res) {
     res.render("chatbots/index", {
         title: "AI Chatbots",
@@ -61,7 +61,7 @@ function index(req, res) {
     });
 }
 
-// Render the AI response from Groq
+// render the AI response from Groq
 async function newGroq(req, res) {
      // get the user inputted text
     const userPrompt = req.body.inputText;           
@@ -95,7 +95,7 @@ async function newGroq(req, res) {
     });
 }
 
-// Render the AI response from the OpenAI
+// render the AI response from the OpenAI
 async function newOpenAI(req, res) {
     // get the user inputted text
     const userPrompt = req.body.inputText;           
@@ -125,7 +125,7 @@ async function newOpenAI(req, res) {
     });
 }
 
-// Render the AI response image from the OpenAI
+// render the AI response image from the OpenAI
 async function newImage(req, res) {
     // get the user inputted text
     const userPrompt = req.body.inputText;           
@@ -153,7 +153,7 @@ async function newImage(req, res) {
     });
 }
 
-// Render the AI response from Langchain
+// render the AI response from Langchain
 async function newLangchain(req, res) {
     // get the user inputted text
     const userPrompt = req.body.inputPrompt; 
@@ -196,7 +196,7 @@ async function newLangchain(req, res) {
     });
 }
 
-// Render the AI response from LlamaIndex
+// render the AI response from LlamaIndex
 async function newLlamaIndex(req, res) {
     // get the user inputted text
     const userPrompt = req.body.inputText;

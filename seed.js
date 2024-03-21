@@ -8,17 +8,6 @@ const Company = require('./models/company');
 // For better organization, the seed data is being stored in a separate data.js module
 const data = require('./data');
 
-// // await needs an async function - use an async IIFE!
-// (async function() {
-//   let results = await Platform.deleteMany({});
-//   // results will be whatever the promise
-//   // returned by the deleteMany method resolves to
-//   console.log(results);
-  
-//   // Lastly, use process.exit() to "cleanly" shut down the Node program
-//   process.exit();
-// })();
-
 // removes documents from the movies and performers collections in paralllel
 (async function() {
   // Save the promises (or call right in the array if feeling frisky)
@@ -39,4 +28,3 @@ const data = require('./data');
   // Lastly, use process.exit() to "cleanly" shut down the Node program
   process.exit();
 })();
-

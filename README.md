@@ -3,7 +3,9 @@ This is a CRUD (Create, Replace, Update, Delete) app centered around popular AI 
 
 # Screenshot
 
-- Coming soon...
+<img src="./imgs/front-page.png">
+<img src="./imgs/chatbot-page.png">
+<img src="./imgs/favorites-page.png">
 
 # Technologies Used
 

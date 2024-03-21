@@ -16,7 +16,7 @@ module.exports = {
 
 
 // -------------------- Functions -------------------
-// Render the Favorite's page of the signed-in user
+// render the Favorite's page of the signed-in user
 async function index(req, res) {
     // get the singed-in user's data from MongoDB and populate it's favorite's array
     const user = await User.findById(req.user._id).populate("favorites");
@@ -29,7 +29,7 @@ async function index(req, res) {
     });
 }
 
-// Add a new favorited AI Platform to the user's Favorite's page
+// add a new favorited AI Platform to the user's Favorite's page
 async function create(req, res) {
     // get all the AI Platforms data from MongoDB
     const platforms = await Platform.find({});
@@ -56,7 +56,7 @@ async function create(req, res) {
     });
 }
 
-// Delete the chosen AI Platform from the signed-in user's Favorite's page
+// delete the chosen AI Platform from the signed-in user's Favorite's page
 async function deleteFavorite(req, res) {
     // get the chosen AI Platform from MongoDB 
     const platform = await Platform.findById(req.params.platformId);
@@ -78,7 +78,7 @@ async function deleteFavorite(req, res) {
     });
 }
 
-// Render the AI Platform's Favorites page with all the AI Platform's in MongoDB sorted by name in ascending order
+// render the AI Platform's Favorites page with all the AI Platform's in MongoDB sorted by name in ascending order
 async function sortNamesAscend(req, res) {
     // get the singed-in user's data from MongoDB and populate it's favorite's array
     const user = await User.findById(req.user._id).populate("favorites");
@@ -98,7 +98,7 @@ async function sortNamesAscend(req, res) {
     });
 }
 
-// Render the AI Platform's Favorites page with all the AI Platform's in MongoDB sorted by name in descending order
+// render the AI Platform's Favorites page with all the AI Platform's in MongoDB sorted by name in descending order
 async function sortNamesDescend(req, res) {
     // get the singed-in user's data from MongoDB and populate it's favorite's array
     const user = await User.findById(req.user._id).populate("favorites");
@@ -118,7 +118,7 @@ async function sortNamesDescend(req, res) {
     });
 }
 
-// Render the AI Platform's Favorites page with all the AI Platform's in MongoDB sorted by industry in ascending order
+// render the AI Platform's Favorites page with all the AI Platform's in MongoDB sorted by industry in ascending order
 async function sortIndustryAscend(req, res) {
     // get the singed-in user's data from MongoDB and populate it's favorite's array
     const user = await User.findById(req.user._id).populate("favorites");
@@ -138,7 +138,7 @@ async function sortIndustryAscend(req, res) {
     });
 }
 
-// Render the AI Platform's Favorites page with all the AI Platform's in MongoDB sorted by industry in descending order
+// render the AI Platform's Favorites page with all the AI Platform's in MongoDB sorted by industry in descending order
 async function sortIndustryDescend(req, res) {
     // get the singed-in user's data from MongoDB and populate it's favorite's array
     const user = await User.findById(req.user._id).populate("favorites");

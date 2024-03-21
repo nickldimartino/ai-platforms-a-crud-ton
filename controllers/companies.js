@@ -14,7 +14,7 @@ module.exports = {
 
 
 // -------------------- Functions -------------------
-// Render the AI Platform's More Info page displaying Company Info
+// render the AI Platform's More Info page displaying Company Info
 async function index(req, res) {
     // get the chosen platform in MongoDB and populate the company array with the reference ID
     const platform = await Platform.findById(req.params.id).populate("company");
@@ -29,7 +29,7 @@ async function index(req, res) {
     });
 }
 
-// Render the new company page so a user can add the company info of the chosen AI Platform
+// render the new company page so a user can add the company info of the chosen AI Platform
 function newCompany(req, res) {
     res.render("companies/new", {
         title: "Add Company Info to the AI Platform",
@@ -38,7 +38,7 @@ function newCompany(req, res) {
     });
 }
 
-// Create a new company and link it to it's specified AI Platform
+// create a new company and link it to it's specified AI Platform
 async function create(req, res) {
     // get the chosen platform from MongoDB
     const platform = await Platform.findById(req.params.id);
@@ -57,7 +57,7 @@ async function create(req, res) {
     res.redirect(`/companies/${req.params.id}`);
 }
 
-// Edits the information of the company for the chosen AI Platform
+// edits the information of the company for the chosen AI Platform
 async function edit(req, res) {
     // get the chosen platform from MongoDB
     const platform = await Platform.findById(req.params.id);

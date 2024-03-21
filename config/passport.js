@@ -3,6 +3,8 @@ const User = require('../models/user');
 const passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
+
+// -------------------- Passport --------------------
 // Use Google Strategy to sign a user in with OAuth
 passport.use(new GoogleStrategy(
     // configuration object
