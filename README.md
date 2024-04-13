@@ -1,6 +1,15 @@
 # <h1 align="center">AI Platforms: A CRUD-ton!</h1>
 #### <h3 align="center"><a href="https://ai-platforms-list-crud-64ab4f9bb249.herokuapp.com/platforms">Play on Heroku!</a></h3>
 
+<div align="center">
+ <a href="https://www.linkedin.com/in/nicholas-dimartino/" target="_blank">
+      <img src="https://img.shields.io/badge/-linkedin.com/in/ndimartino-blue?style=flat&logo=Linkedin&logoColor=white">
+ </a> 
+  <a href="mailto:nick.l.dimartino@gmail.com" target="_blank">
+    <img src="https://img.shields.io/badge/-nick.l.dimartino@gmail.com-c14438?style=flat&logo=Gmail&logoColor=white">
+ </a>
+</div>
+
 ## 📝Description
 This is a CRUD (Create, Replace, Update, Delete) app centered around popular AI Platforms as of March 2024. Using MongoDB, OAuth, and Passport with Google Strategy, users can sign-in and add or remove AI Platforms from their favorites list.  Only the app creator can permanently remove AI Platforms from the overarching list.  Jest tests and Postman were used to verify working CRUD functionality of HTTP requests.  As a bonus, users can visit the AI Chatbots page to utilize the Groq API and OpenAI API to try out AI chatbots.  The OpenAI API was used for image generation and Langchain was used to personalize the chatbot to respond as a personalized person.  LlamaIndex can be configured to utilize Retrieval-Augmented Generation (RAG) if needed.
 
