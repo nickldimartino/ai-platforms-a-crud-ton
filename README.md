@@ -6,7 +6,7 @@ This is a CRUD (Create, Replace, Update, Delete) app centered around popular AI 
 
 ## 🖼️ Screenshots
 <details>
- <summary> 📊 Gameplay</summary>
+ <summary> 📊 Browser Pages</summary>
  
  | Description | Screenshot |
  |------------ | ------------|
