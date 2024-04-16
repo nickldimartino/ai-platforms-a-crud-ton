@@ -72,13 +72,16 @@ This is a CRUD (Create, Replace, Update, Delete) app centered around popular AI 
 3. Enter prompts into the fields to generate AI prompts based on your entry.
 </details>
 
+### 🔗 Links
 <details>
 <summary>Deployed Link (Heroku)</summary>
+
 <a href="https://ai-platforms-list-crud-64ab4f9bb249.herokuapp.com/platforms">https://ai-platforms-list-crud-64ab4f9bb249.herokuapp.com/platforms</a>
 </details>
 
 <details>
 <summary>Trello Board</summary>
+
 <a href="https://trello.com/invite/b/wxJJovTM/ATTIe2671fe1c19bf987e8e016b85b7b29e5F84E9127/ai-program-list">https://trello.com/invite/b/wxJJovTM/ATTIe2671fe1c19bf987e8e016b85b7b29e5F84E9127/ai-program-list</a>
 </details>
 
