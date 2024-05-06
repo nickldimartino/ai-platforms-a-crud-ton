@@ -2,6 +2,9 @@
 #### <h3 align="center"><a href="https://ai-platforms-list-crud-64ab4f9bb249.herokuapp.com/platforms">Play on Heroku!</a></h3>
 
 <div align="center">
+ <a href="https://nickldimartino.github.io/portfolio/" target="_blank">
+      <img src="https://img.shields.io/badge/My%20Portfolio-16a34a">
+ </a>
  <a href="https://www.linkedin.com/in/nicholas-dimartino/" target="_blank">
       <img src="https://img.shields.io/badge/-linkedin.com/in/nicholasdimartino-blue?style=flat&logo=Linkedin&logoColor=white">
  </a> 
